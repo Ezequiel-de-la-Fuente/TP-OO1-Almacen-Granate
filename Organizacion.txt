@@ -1,0 +1,7 @@
+Clases:
+	Eze: Entrega, Envio, RetiroLocal, Ubicacion, Contacto
+	Ana: Comercio, Cliente, Actor
+	Maxi: Carrito, ItemCarrito, Articulo
+	Lucas: Turno, DiaRetiro
+Casos de uso:
+	

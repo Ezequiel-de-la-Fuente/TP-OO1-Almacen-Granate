@@ -23,12 +23,12 @@ public abstract class Actor {
 	}
 	
 	public void setContacto(Contacto contacto) {
-		this.contacto = contacto;
+		this.contacto.equals(contacto);
 	}
 	
-	public boolean equals(Actor act)
+	public boolean equals(Actor actor)
 	{
-		return this.id==act.id;
+		return this.id==actor.getId();
 	}
 
 	@Override

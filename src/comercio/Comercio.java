@@ -20,6 +20,7 @@ public class Comercio extends Actor {
 	
 	public Comercio(int id, Contacto contacto,String nombreComercio, String cuit, double costoFijo, double costoPorKm, int diaDescuento, int porcentajeDescuentoDia, int porcentajeDescuentoEfectivo)//, ArrayList<DiaRetiro> lstDiaRetiro, ArrayList<Carrito> lstCarrito) 
 	{
+		//TODO: no esta implementada la clase Actor
 		super(id, contacto);
 		setNombreComercio(nombreComercio);
 		setCuit(cuit);

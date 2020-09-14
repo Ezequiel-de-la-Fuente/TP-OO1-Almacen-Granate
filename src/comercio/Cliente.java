@@ -8,6 +8,7 @@ public class Cliente extends Actor {
 	
      public Cliente(int id, Contacto contacto, String apellido, String nombres, int dni ) 
      {
+    	//TODO: no esta implementada la clase Actor
 		super(id, contacto);
 		setApellido(apellido);
 		setNombres(nombres);

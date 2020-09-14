@@ -1,4 +1,4 @@
-package model;
+package comercio;
 
 import java.security.InvalidParameterException;
 

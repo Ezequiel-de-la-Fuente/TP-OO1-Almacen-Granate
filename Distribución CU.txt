@@ -1,0 +1,4 @@
+Combo 1: Calcular[9-13]..(5) {EZE}
+Cambo 2: Turnos[3-5]..(3) {MAXI}
+Combo 3: Envío[16-17-8]..(3) {ANA}
+Combo 4: Descartes[2-6-7-14-15]..(5){LUCAS}

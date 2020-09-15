@@ -1,10 +1,11 @@
 package comercio;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
+import java.time.LocalTime;
 
-public class Carrito extends Entrega{
+
+public class Carrito{
 
 	private int id;
 	private LocalDate fecha;
@@ -16,9 +17,9 @@ public class Carrito extends Entrega{
 	private Entrega entrega;
 	
 	public Carrito(int id, LocalDate fecha, LocalTime hora,
-			boolean cerrado, double descuento, Cliente cliente,Entrega entrega) {
-		super(id, fecha,efectivo);
-		
+			boolean cerrado, double descuento, Cliente cliente, ArrayList<Itemcarrito> lstItemcarrito,
+			Entrega entrega) {
+				
 		setId(id);
 		setFecha(fecha);
 		setHora(hora);
@@ -102,7 +103,7 @@ public class Carrito extends Entrega{
 	@Override
 	public String toString() {
 		return super.toString()+"Id carrito: "+ id + "\nFecha: "+fecha+ "\nHora: "+ hora + " cerrado: " + cerrado + "\nDescuento: " +descuento+ 
-	          "\nLista de items en carrito: " + lstItemcarrito+"\n "+Entrega.toString(Entrega = Entrega()) ;
+	          "\nLista de items en carrito: " + lstItemcarrito+"\n "+Entrega.toString(Entrega = new Entrega());
 	}
 	
 	

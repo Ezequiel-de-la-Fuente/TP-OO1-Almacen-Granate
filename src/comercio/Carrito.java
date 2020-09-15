@@ -103,7 +103,7 @@ public class Carrito{
 	@Override
 	public String toString() {
 		return super.toString()+"Id carrito: "+ id + "\nFecha: "+fecha+ "\nHora: "+ hora + " cerrado: " + cerrado + "\nDescuento: " +descuento+ 
-	          "\nLista de items en carrito: " + lstItemcarrito+"\n "+Entrega.toString(Entrega = new Entrega());
+	          "\nLista de items en carrito: " + lstItemcarrito+"\n Entrega"+entrega.toString();
 	}
 	
 	

@@ -18,7 +18,7 @@ public class Comercio extends Actor {
 	private ArrayList<DiaRetiro> lstDiaRetiro;
 	private ArrayList<Carrito> lstCarrito;
 	
-	public Comercio(int id, Contacto contacto,String nombreComercio, String cuit, double costoFijo, double costoPorKm, int diaDescuento, int porcentajeDescuentoDia, int porcentajeDescuentoEfectivo)//, ArrayList<DiaRetiro> lstDiaRetiro, ArrayList<Carrito> lstCarrito) 
+	public Comercio(int id, Contacto contacto,String nombreComercio, String cuit, double costoFijo, double costoPorKm, int diaDescuento, int porcentajeDescuentoDia, int porcentajeDescuentoEfectivo, ArrayList<DiaRetiro> lstDiaRetiro, ArrayList<Carrito> lstCarrito)//, ArrayList<DiaRetiro> lstDiaRetiro, ArrayList<Carrito> lstCarrito) 
 	{
 		//TODO: no esta implementada la clase Actor 
 		super(id, contacto);
@@ -30,7 +30,7 @@ public class Comercio extends Actor {
 		setPorcentajeDescuentoDia(porcentajeDescuentoDia);
 		setPorcentajeDescuentoEfectivo(porcentajeDescuentoEfectivo);
 		setLstDiaRetiro(lstDiaRetiro);
-		setLstCarrito(ArrayList<Carrito> lstCarrito);
+		setLstCarrito(lstCarrito);
 		
 	}
 

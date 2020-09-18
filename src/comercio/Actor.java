@@ -1,4 +1,5 @@
 package comercio;
+import java.security.InvalidParameterException;
 
 public abstract class Actor {
   
@@ -31,6 +32,15 @@ public abstract class Actor {
 	public boolean equals(Actor actor)
 	{
 		return this.id==actor.getId();
+	}
+	
+	Ubicacion traerUbicacion()
+	{
+		if(contacto==null)
+		{
+			throw new InvalidParameterException("[WARNING] El contacto es nulo");
+		}
+	   return contacto.getUbicacion();
 	}
 
 	@Override

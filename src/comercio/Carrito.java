@@ -93,7 +93,28 @@ public class Carrito{
 		this.entrega = entrega;
 	}
 		
+	public boolean agregarItem(Articulo articulo, int cantidad)
+	{
+		int c=0;
+		boolean encontre = false;
+		while(c<lstItemcarrito.size()&&!encontre)
+		{
+			if(lstItemcarrito.get(c).getArticulo()==articulo)
+			{
+				lstItemcarrito.get(c).setCantidad(lstItemcarrito.get(c).getCantidad()+cantidad);
+				encontre = true;
+			}
+			c++;
+		}
 		
+		if(!encontre)
+		{
+			Itemcarrito iCarrito = new Itemcarrito(cantidad,articulo);
+			lstItemcarrito.add(iCarrito);
+		}
+		return true;
+	}
+	
 	public boolean equals(Comercio comercio)
 	{
 		return this.id==comercio.getId();

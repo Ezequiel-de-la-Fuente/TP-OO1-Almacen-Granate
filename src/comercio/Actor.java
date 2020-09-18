@@ -23,8 +23,10 @@ public abstract class Actor {
 	}
 	
 	public void setContacto(Contacto contacto) {
-		this.contacto.equals(contacto);
+		this.contacto=contacto;
 	}
+	
+	public abstract boolean validarIdentificadorUnico();
 	
 	public boolean equals(Actor actor)
 	{

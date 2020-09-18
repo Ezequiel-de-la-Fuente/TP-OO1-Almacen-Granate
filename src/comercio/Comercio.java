@@ -1,6 +1,5 @@
 package comercio;
 
-// import java.util.Iterator;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
@@ -47,37 +46,25 @@ public class Comercio extends Actor {
 	}
 
 	public void setCuit(String cuit) {
-		if(esCuitValido(cuit))
-		{
-		 this.cuit = cuit;
-		}
-		else 
-		{
-			throw new InvalidParameterException("[WARNING] El cuit ingresado es inv�lido");
-		}
+		
+		this.cuit = cuit;
+		validarIdentificadorUnico();
 	}
 	
-	public boolean esCuitValido(String cuit)
+	
+	public boolean validarIdentificadorUnico()
 	{
-		boolean booleano=false;
+		boolean esValido=false;
 		
-		String parte = cuit.substring(3,11); 
+		String parte = cuit.replaceAll("-",""); 
+		int[] cadenaProductos = new int[]{5,4,3,2,7,6,5,4,3,2}; 
 		
 		if (Integer.parseInt(cuit.substring(0,2))==30)
 		{
-			int acumulador =3*5+0*4;
-			int cont = 3;
-			for (int n=0; n<2;n++) 
+			int acumulador =0;
+			for (int n=0; n<10;n++) 
 			{
-				acumulador  = acumulador + ((Character.getNumericValue(parte.charAt(n))) * cont);
-				cont--;
-			}
-			cont = 7;
-			parte = parte.substring(2);
-			for (int n=0; n<6;n++) 
-			{
-				acumulador = acumulador + ((Character.getNumericValue(parte.charAt(n))) * cont);
-				cont--;
+				acumulador  = acumulador + ((Character.getNumericValue(parte.charAt(n))) * cadenaProductos[n]);
 			}
 			int ultimoDigitoCuit=acumulador%11;
 			if(ultimoDigitoCuit!=0)
@@ -85,13 +72,18 @@ public class Comercio extends Actor {
 				ultimoDigitoCuit=11-ultimoDigitoCuit;
 			}
 			
-			booleano = ultimoDigitoCuit == Character.getNumericValue(cuit.charAt(12));
+			esValido = ultimoDigitoCuit == Character.getNumericValue(cuit.charAt(12));
 		
 		}
 		
-		return booleano;
+		if(!esValido)
+		{
+			throw new InvalidParameterException("[WARNING] El cuit ingresado es inválido");
+		}
+		
+		return esValido;
 	}
-
+	
 	public double getCostoFijo() {
 		return costoFijo;
 	}

@@ -44,6 +44,11 @@ public class Itemcarrito {
 		}
 		return sonIguales;
 	}
+
+	//CU 9
+	public double calcularSubTotalItem(){
+		return cantidad*articulo.getPrecio();
+	}
 	
 	
 }

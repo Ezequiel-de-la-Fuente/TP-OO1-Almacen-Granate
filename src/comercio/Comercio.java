@@ -1,6 +1,6 @@
 package comercio;
 
-import java.util.Iterator;
+// import java.util.Iterator;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
@@ -53,7 +53,7 @@ public class Comercio extends Actor {
 		}
 		else 
 		{
-			throw new InvalidParameterException("[WARNING] El cuit ingresado es inválido");
+			throw new InvalidParameterException("[WARNING] El cuit ingresado es invï¿½lido");
 		}
 	}
 	

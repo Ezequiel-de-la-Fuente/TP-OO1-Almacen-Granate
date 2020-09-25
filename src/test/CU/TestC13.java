@@ -19,12 +19,15 @@ public class TestC13 {
         lstItemcarrito.add(itemcarrito2);
 
         Carrito carrito = new Carrito(0, LocalDate.now(), LocalTime.now(), false, 5, null, lstItemcarrito, null);
+        System.out.println("El dia actual es " + LocalDate.now().getDayOfWeek().getValue() + ", y se pasa un 4");
         System.out.println("Decuento del dia: 10 y DescuentoEfectico: 15");
-        carrito.calcularDescuentoCarrito(3, 10, 15);
+        carrito.calcularDescuentoCarrito(4, 10, 15);
         System.out.println("El nuevo descuento es: " + carrito.getDescuento());
 
+
+        System.out.println("El dia actual es " + LocalDate.now().getDayOfWeek().getValue() + ", y se pasa un 5");
         System.out.println("Decuento del dia: 25 y DescuentoEfectico: 10");
-        carrito.calcularDescuentoCarrito(3, 25, 10);
+        carrito.calcularDescuentoCarrito(5, 25, 10);
         System.out.println("El nuevo descuento es: " + carrito.getDescuento());
 
 

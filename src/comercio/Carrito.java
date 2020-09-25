@@ -1,4 +1,5 @@
 package comercio;
+import java.security.InvalidParameterException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.time.LocalTime;
@@ -126,8 +127,6 @@ public class Carrito{
 	          "\nLista de items en carrito: " + lstItemcarrito+"\n Entrega: "+entrega.toString();
 	}
 	//CU 10
-	//TODO: ¿Le agrego algun impuesto?
-	
 	public double calcularTotalCarrito(){
 		double total = 0;
 		for (Itemcarrito itemcarrito : lstItemcarrito) {
@@ -138,17 +137,19 @@ public class Carrito{
 
 	//CU 11
 	public double calcularDescuentoDia (int diaDescuento, double porcentajeDescuentoDia){
-		//Los dias serian 0,1,2,3,4,5,6 tal que Lunes,Martes,Miercoles,Jueves,Viernes,Sabados,Domingos
-		//O serian del 0 al 31(Tipo los obtendriamos de LocalDate.now().getDayOfMonth() o LocalDate.now().getDayOfWeek().getValue()
-		//Tiene revelacia el diaDescuento?
-		//-------------------Resolucion Provisional-------------------------
-		double porcentaje = porcentajeDescuentoDia/100.0;//Lo hago asuminedo que el numero que se me pasa esta entre [0;100]
+		//  this.fecha.getDayOfWeek().getValue()
+		if (diaDescuento == this.fecha.getDayOfWeek().getValue()){
+			double porcentaje = porcentajeDescuentoDia/100.0;//Lo hago asuminedo que el numero que se me pasa esta entre [0;100]
 
-		double viejoTotal = calcularTotalCarrito();
+			double viejoTotal = calcularTotalCarrito();
 
-		double nuevoTotal = viejoTotal - viejoTotal * porcentaje;
+			double nuevoTotal = viejoTotal - viejoTotal * porcentaje;
 
-		return nuevoTotal;
+			return nuevoTotal;
+		}else{
+			throw new InvalidParameterException("El dia de descuento no concuerda con la fecha del carrito");
+		}
+		
 	}
 
 	//CU 12
@@ -163,9 +164,20 @@ public class Carrito{
 	}
 	//CU 13
 	public void calcularDescuentoCarrito (int diaDescuento, double porcentajeDescuentoDia, double porcentajeDescuentoEfectivo){
-		double totalDescuentoDia = calcularDescuentoDia(diaDescuento, porcentajeDescuentoDia);
+		double totalDescuentoDia = 0;
+		boolean elDiaDescuentoEsCorrecto = true;
+		try {
+			totalDescuentoDia = calcularDescuentoDia(diaDescuento, porcentajeDescuentoDia);
+		} catch (Exception e) {
+			elDiaDescuentoEsCorrecto = false;
+		}
+		
 		double totatDescuentoEfectuvi = calcularDescuentoEfectivo(porcentajeDescuentoEfectivo);
-		if (totalDescuentoDia>=totatDescuentoEfectuvi){
+
+		if (!elDiaDescuentoEsCorrecto){
+			setDescuento(porcentajeDescuentoEfectivo);
+		}
+		else if (totalDescuentoDia>=totatDescuentoEfectuvi){
 			setDescuento(porcentajeDescuentoEfectivo);
 		}else{
 			setDescuento(porcentajeDescuentoDia);

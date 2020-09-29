@@ -30,6 +30,19 @@ public class Carrito{
 		lstItemcarrito = new ArrayList<Itemcarrito>();
 		
 	}
+	public Carrito(LocalDate fecha, LocalTime hora,
+			boolean cerrado, double descuento, Cliente cliente) {
+				
+		this.id = Carrito.cantidad;
+		setFecha(fecha);
+		setHora(hora);
+		setCerrado(cerrado);
+		setDescuento(descuento);
+		setLstItemcarrito(lstItemcarrito);
+		setEntrega(null);
+		lstItemcarrito = new ArrayList<Itemcarrito>();
+		
+	}
 
 	public int getId() {
 		return id;
@@ -120,9 +133,14 @@ public class Carrito{
 
 	@Override
 	public String toString() {
-		return super.toString()+"Id carrito: "+ id + "\nFecha: "+fecha+ "\nHora: "+ hora + " cerrado: " + cerrado + "\nDescuento: " +descuento+ 
-	          "\nLista de items en carrito: " + lstItemcarrito+"\n Entrega: "+entrega.toString();
+		String str = super.toString()+"Id carrito: "+ id + "\nFecha: "+fecha+ "\nHora: "+ hora + " cerrado: " + cerrado + "\nDescuento: " +descuento+ 
+					"\nLista de items en carrito: " + lstItemcarrito;
+		if(entrega!=null){
+			str = str + "\n Entrega: "+entrega.toString();
+		}
+		return str;
 	}
+
 	//CU 10
 	public double calcularTotalCarrito(){
 		double total = 0;

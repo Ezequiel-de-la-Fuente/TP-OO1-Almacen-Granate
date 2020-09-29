@@ -1,11 +1,6 @@
 package test;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-
 import comercio.Articulo;
-import comercio.Envio;
-import comercio.Ubicacion;
 
 public class TestArticulo {
 

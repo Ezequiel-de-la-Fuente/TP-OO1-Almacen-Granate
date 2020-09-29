@@ -26,16 +26,15 @@ public class Articulo {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public String getNombre() {
 		return nombre;
 	}
 
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		if(nombre != null)
+			this.nombre = nombre;
+		else 
+			throw new InvalidParameterException("[WARNING] El nombre no puede ser nulo.");
 	}
 
 	public String getCodBarras() {
@@ -43,6 +42,7 @@ public class Articulo {
 	}
 
 	public void setCodBarras(String codBarras) {
+		//TODO: Hacer la comprobación con el CU de cod de barras 
 		this.codBarras = codBarras;
 	}
 
@@ -51,8 +51,11 @@ public class Articulo {
 	}
 
 	public void setPrecio(double precio) {
-		this.precio = precio;
-	}
+		if(precio < 0)
+			this.precio = precio;
+		else 
+			throw new InvalidParameterException("[WARNING] El precio no puede ser negativo.");
+		}
 	
 	@Override
 	public String toString() {

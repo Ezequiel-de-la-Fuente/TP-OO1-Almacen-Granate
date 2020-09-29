@@ -17,9 +17,7 @@ public class Carrito{
 	private ArrayList<Itemcarrito> lstItemcarrito;
 	private Entrega entrega;
 	
-	public Carrito(LocalDate fecha, LocalTime hora,
-			boolean cerrado, double descuento, Cliente cliente, ArrayList<Itemcarrito> lstItemcarrito,
-			Entrega entrega) {
+	public Carrito(LocalDate fecha, LocalTime hora,	boolean cerrado, double descuento, Cliente cliente, Entrega entrega) {
 				
 		this.id = Carrito.cantidad;
 		setFecha(fecha);
@@ -28,6 +26,7 @@ public class Carrito{
 		setDescuento(descuento);
 		setLstItemcarrito(lstItemcarrito);
 		setEntrega(entrega);
+		lstItemcarrito = new ArrayList<Itemcarrito>();
 		
 	}
 

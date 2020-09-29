@@ -42,7 +42,7 @@ public class Articulo {
 	}
 
 	public void setCodBarras(String codBarras) {
-		//TODO: Hacer la comprobación con el CU de cod de barras 
+		//TODO: Hacer la comprobaciï¿½n con el CU de cod de barras 
 		this.codBarras = codBarras;
 	}
 
@@ -51,7 +51,7 @@ public class Articulo {
 	}
 
 	public void setPrecio(double precio) {
-		if(precio < 0)
+		if(precio > 0)
 			this.precio = precio;
 		else 
 			throw new InvalidParameterException("[WARNING] El precio no puede ser negativo.");
@@ -59,7 +59,7 @@ public class Articulo {
 	
 	@Override
 	public String toString() {
-		return "Id: " + id + ", nombre: " + nombre + ", código de barras: " + codBarras + ", precio: " + precio + ".";
+		return "Id: " + id + ", nombre: " + nombre + ", codigo de barras: " + codBarras + ", precio: " + precio;
 	}
 	
 	public boolean equals(Articulo a) {

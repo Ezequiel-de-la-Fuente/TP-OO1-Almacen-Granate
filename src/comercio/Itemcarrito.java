@@ -32,7 +32,7 @@ public class Itemcarrito {
 	
 	@Override
 	public String toString() {
-		return "Cantidad: "+cantidad+", articulo: "+articulo+".";
+		return "Cantidad: "+cantidad+", articulo: "+articulo;
 	}
 	
 	public boolean equals(Itemcarrito Itemcarrito) {

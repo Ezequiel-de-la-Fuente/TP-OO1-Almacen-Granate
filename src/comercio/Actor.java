@@ -24,7 +24,11 @@ public abstract class Actor {
 	}
 	
 	public void setContacto(Contacto contacto) {
-		this.contacto=contacto;
+		if(contacto!=null) {
+			this.contacto = contacto;			
+		}else {
+			throw new InvalidParameterException("[WARNING] El contacto no debe ser nulo");
+		}
 	}
 	
 	public abstract boolean validarIdentificadorUnico();
@@ -45,7 +49,7 @@ public abstract class Actor {
 
 	@Override
 	public String toString() {
-		return "id=" + id + contacto.toString();
+		return "id=" + id + "\n" + contacto.toString();
 	}
 	
 

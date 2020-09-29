@@ -3,8 +3,6 @@ package comercio;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
-//Todo chequeado excepto lo que tenga que ver con listas carrito y dia retiro//
-
 public class Comercio extends Actor {
 	
 	private String nombreComercio;
@@ -17,9 +15,8 @@ public class Comercio extends Actor {
 	private ArrayList<DiaRetiro> lstDiaRetiro;
 	private ArrayList<Carrito> lstCarrito;
 	
-	public Comercio(int id, Contacto contacto,String nombreComercio, String cuit, double costoFijo, double costoPorKm, int diaDescuento, int porcentajeDescuentoDia, int porcentajeDescuentoEfectivo, ArrayList<DiaRetiro> lstDiaRetiro, ArrayList<Carrito> lstCarrito)//, ArrayList<DiaRetiro> lstDiaRetiro, ArrayList<Carrito> lstCarrito) 
+	public Comercio(int id, Contacto contacto,String nombreComercio, String cuit, double costoFijo, double costoPorKm, int diaDescuento, int porcentajeDescuentoDia, int porcentajeDescuentoEfectivo)
 	{
-		//TODO: no esta implementada la clase Actor 
 		super(id, contacto);
 		setNombreComercio(nombreComercio);
 		setCuit(cuit);
@@ -28,8 +25,8 @@ public class Comercio extends Actor {
 		setDiaDescuento(diaDescuento);
 		setPorcentajeDescuentoDia(porcentajeDescuentoDia);
 		setPorcentajeDescuentoEfectivo(porcentajeDescuentoEfectivo);
-		setLstDiaRetiro(lstDiaRetiro);
-		setLstCarrito(lstCarrito);
+		lstDiaRetiro = new ArrayList<DiaRetiro>();
+		lstCarrito   = new ArrayList<Carrito>(); 
 		
 	}
 
@@ -147,8 +144,8 @@ public class Comercio extends Actor {
 
 	@Override
 	public String toString() {
-		return super.toString()+"Nombre: "+ nombreComercio + "\nCuit: "+cuit+ "\nCosto Fijo: "+ costoFijo + " Costo Por KM: " + costoPorKm + "\nDia de Descuento: " + diaDescuento + " Porcentaje Descuento Por dia: " + porcentajeDescuentoDia + " Porcentaje Descuento por Efectivo: "+porcentajeDescuentoEfectivo
-				+"\nDias de Retiro: " + lstDiaRetiro.toString()+"\nLista de carritos: " + lstCarrito.toString();
+		return super.toString()+"\nNombre: "+ nombreComercio + "\nCuit: "+cuit+ "\nCosto Fijo: "+ costoFijo + " Costo Por KM: " + costoPorKm + "\nDia de Descuento: " + diaDescuento + " Porcentaje Descuento Por dia: " + porcentajeDescuentoDia +"%"+ " Porcentaje Descuento por Efectivo: "+porcentajeDescuentoEfectivo
+				+"%"+"\nDias de Retiro: " + lstDiaRetiro.toString()+"\nLista de carritos: " + lstCarrito.toString();
 	}
 	
 	

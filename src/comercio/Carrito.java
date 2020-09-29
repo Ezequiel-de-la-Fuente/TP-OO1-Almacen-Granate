@@ -28,6 +28,7 @@ public class Carrito{
 		setLstItemcarrito(lstItemcarrito);
 		setEntrega(entrega);
 		lstItemcarrito = new ArrayList<Itemcarrito>();
+		Carrito.cantidad++;
 		
 	}
 	public Carrito(LocalDate fecha, LocalTime hora,
@@ -133,7 +134,7 @@ public class Carrito{
 
 	@Override
 	public String toString() {
-		String str = super.toString()+"Id carrito: "+ id + "\nFecha: "+fecha+ "\nHora: "+ hora + " cerrado: " + cerrado + "\nDescuento: " +descuento+ 
+		String str = "Id carrito: "+ id + "\nFecha: "+fecha+ "\nHora: "+ hora + " cerrado: " + cerrado + "\nDescuento: " +descuento+ 
 					"\nLista de items en carrito: " + lstItemcarrito;
 		if(entrega!=null){
 			str = str + "\n Entrega: "+entrega.toString();

@@ -38,7 +38,7 @@ public abstract class Actor {
 		return this.id==actor.getId();
 	}
 	
-	Ubicacion traerUbicacion()
+	public Ubicacion traerUbicacion()
 	{
 		if(contacto==null)
 		{

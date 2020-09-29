@@ -4,14 +4,13 @@ import java.security.InvalidParameterException;
 
 public class Cliente extends Actor {
      
-	 private String apellido;
+     private String apellido;
      private String nombres;
      private int dni;
 	
      public Cliente(int id, Contacto contacto, String apellido, String nombres, int dni ) 
      {
-    	//TODO: no esta implementada la clase Actor
-		super(id, contacto);
+    		super(id, contacto);
 		setApellido(apellido);
 		setNombres(nombres);
 		setDni(dni);
@@ -31,7 +30,7 @@ public class Cliente extends Actor {
 
 	public void setNombres(String nombres) {
 		this.nombres = nombres;
-		validarIdentificadorUnico();
+		
 	}
 	
 	public boolean validarIdentificadorUnico()
@@ -57,6 +56,7 @@ public class Cliente extends Actor {
 
 	public void setDni(int dni) {
 		this.dni = dni;
+		validarIdentificadorUnico();
 	}
      
     public boolean equals(Cliente cliente)
@@ -66,7 +66,7 @@ public class Cliente extends Actor {
 
 	@Override
 	public String toString() {
-		return super.toString() + "Nombres: " + nombres + "Apellido: " + apellido + "DNI: " + dni;
+		return super.toString()+"\n" + "Nombres: " + nombres + " Apellido: " + apellido + " DNI: " + dni;
 	}
     
     

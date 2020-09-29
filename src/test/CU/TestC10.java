@@ -18,7 +18,7 @@ public class TestC10 {
         lstItemcarrito.add(itemcarrito);
         lstItemcarrito.add(itemcarrito2);
 
-        Carrito carrito = new Carrito(0, LocalDate.now(), LocalTime.now(), false, 5, null, lstItemcarrito, null);
+        Carrito carrito = new Carrito(LocalDate.now(), LocalTime.now(), false, 5, null, null);
         System.out.println("Si hay 5 cocas y c/una vale 125, el subtotal es 625");
         System.out.println("Si hay 10 manaos y c/una vale 50, el subtotal es 500");
         System.out.println("El total seria 625 + 500 = 1125");

@@ -7,6 +7,7 @@ import java.time.LocalTime;
 
 public class Carrito{
 
+	private static int cantidad = 0;
 	private int id;
 	private LocalDate fecha;
 	private LocalTime hora;
@@ -16,11 +17,11 @@ public class Carrito{
 	private ArrayList<Itemcarrito> lstItemcarrito;
 	private Entrega entrega;
 	
-	public Carrito(int id, LocalDate fecha, LocalTime hora,
+	public Carrito(LocalDate fecha, LocalTime hora,
 			boolean cerrado, double descuento, Cliente cliente, ArrayList<Itemcarrito> lstItemcarrito,
 			Entrega entrega) {
 				
-		setId(id);
+		this.id = Carrito.cantidad;
 		setFecha(fecha);
 		setHora(hora);
 		setCerrado(cerrado);
@@ -32,10 +33,6 @@ public class Carrito{
 
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public LocalDate getFecha() {

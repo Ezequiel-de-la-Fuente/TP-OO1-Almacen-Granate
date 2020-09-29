@@ -111,7 +111,7 @@ public class Carrito{
 		boolean encontre = false;
 		while(c<lstItemcarrito.size()&&!encontre)
 		{
-			if(lstItemcarrito.get(c).getArticulo()==articulo)
+			if(lstItemcarrito.get(c).getArticulo().equals(articulo))
 			{
 				lstItemcarrito.get(c).setCantidad(lstItemcarrito.get(c).getCantidad()+cantidad);
 				encontre = true;

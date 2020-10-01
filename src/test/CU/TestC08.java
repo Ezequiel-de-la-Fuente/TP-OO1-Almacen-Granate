@@ -8,7 +8,7 @@ import comercio.Carrito;
 import comercio.Cliente;
 import comercio.Articulo;
 
-public class TestCasosDeUso {
+public class TestCasoDeUso08 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

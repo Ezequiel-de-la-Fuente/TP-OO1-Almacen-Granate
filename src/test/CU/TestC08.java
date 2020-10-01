@@ -1,4 +1,4 @@
-package test;
+package test.CU;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -8,7 +8,7 @@ import comercio.Carrito;
 import comercio.Cliente;
 import comercio.Articulo;
 
-public class TestCasoDeUso08 {
+public class TestC08 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

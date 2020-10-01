@@ -1,4 +1,4 @@
-package test;
+package test.CU;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -6,7 +6,7 @@ import comercio.Envio;
 import comercio.Ubicacion;
 
 
-public class TestCasoDeUso16 {
+public class TestC16 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

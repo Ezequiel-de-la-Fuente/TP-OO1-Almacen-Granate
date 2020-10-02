@@ -1,6 +1,7 @@
 package comercio;
 
 import java.security.InvalidParameterException;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Comercio extends Actor {
@@ -148,5 +149,24 @@ public class Comercio extends Actor {
 				+"%"+"\nDias de Retiro: " + lstDiaRetiro.toString()+"\nLista de carritos: " + lstCarrito.toString();
 	}
 	
+	// CU 6.
+	public boolean agregarDiaRetiro(int diaSemana, LocalTime horaDesde, LocalTime horaHasta, int
+			intervalo) throws Exception {
+		int idDiaRetiro = 1; 
+		if(getLstDiaRetiro().size() != 0) {
+			idDiaRetiro = lstDiaRetiro.get(getLstDiaRetiro().size() -1).getId() +1;
+		}
+		
+		DiaRetiro nuevoDiaRetiro = new DiaRetiro(idDiaRetiro, diaSemana, horaDesde, horaHasta, intervalo);
+		
+		for(int i = 0; i<lstDiaRetiro.size(); i++) {
+			if(nuevoDiaRetiro.equals(lstDiaRetiro.get(i))) {
+				throw new Exception("El día ya existe." + nuevoDiaRetiro);
+			}
+		}
+		lstDiaRetiro.add(nuevoDiaRetiro);
+		return true;
+		
+	}
 	
 }

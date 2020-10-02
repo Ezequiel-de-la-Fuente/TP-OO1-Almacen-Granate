@@ -71,5 +71,26 @@ public class Articulo {
 		}
 		return iguales;	
 	}
+	
+	//Caso de uso 7
+	public boolean validarCodBarras(String codBarras) {
+        int digito;
+        int calcular;
+        String ean;
+        String checkSum = "131313131313";
+        int sum = 0;
+
+        if (codBarras.length() == 13) {
+            digito = Integer.parseInt("" + codBarras.charAt(codBarras.length() - 1));            
+            ean = codBarras.substring(0, codBarras.length() - 1);            
+            for (int i = 0; i <= ean.length() - 1; i++) {
+                sum += (Integer.parseInt("" + ean.charAt(i))) * (Integer.parseInt("" + checkSum.charAt(i)));
+            }            
+            calcular = 10 - (sum % 10);            
+            return (digito == calcular);
+        } else {
+            return false;
+        }
+    }
 
 }

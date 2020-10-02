@@ -20,11 +20,18 @@ public class DiaRetiro {
 		setIntervalo(intervalo);
 		DiaRetiro.cantidad++;
 	}
+	public DiaRetiro(int id, int diaSemana, LocalTime horaDesde, LocalTime horaHasta, int intervalo) {
+		this.id = id;
+		setDiaSemana(diaSemana);
+		setHoraDesde(horaDesde);
+		setHoraHasta(horaHasta);
+		setIntervalo(intervalo);
+		DiaRetiro.cantidad++;
+	}
 
 	public int getId() {
 		return id;
 	}
-
 
 	public int getDiaSemana() {
 		return diaSemana;
@@ -83,13 +90,7 @@ public class DiaRetiro {
 	}
 	
 	public boolean equals(DiaRetiro retiro) {
-		boolean sonIguales = false;
-		if (retiro != null) {
-			sonIguales = retiro.getId() == this.id;
-		}else {
-			throw new InvalidParameterException("[WARNING] El retiro no debe ser nulo");
-		}
-		return sonIguales;
+		return this.diaSemana == ((DiaRetiro)retiro).getDiaSemana();
 	}
 	
 }

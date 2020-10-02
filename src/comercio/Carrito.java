@@ -25,7 +25,6 @@ public class Carrito{
 		setHora(hora);
 		setCerrado(cerrado);
 		setDescuento(descuento);
-		setLstItemcarrito(lstItemcarrito);
 		setEntrega(entrega);
 		lstItemcarrito = new ArrayList<Itemcarrito>();
 		Carrito.cantidad++;
@@ -54,15 +53,24 @@ public class Carrito{
 	}
 
 	public void setFecha(LocalDate fecha) {
-		this.fecha = fecha;
+		if (fecha != null) {
+			this.fecha = fecha;
+		}else {
+			throw new InvalidParameterException("[WARNING] La fecha no puede ser nula");
+		}
 	}
+
 
 	public LocalTime getHora() {
 		return hora;
 	}
 
 	public void setHora(LocalTime hora) {
-		this.hora = hora;
+		if(hora!=null) {
+			this.hora = hora;
+		}else {
+			throw new InvalidParameterException("[WARNING] La hora no puede ser nula");
+		}
 	}
 
 	public boolean isCerrado() {
@@ -78,8 +86,13 @@ public class Carrito{
 	}
 
 	public void setDescuento(double descuento) {
-		this.descuento = descuento;
+		if (descuento>=0) {
+			this.descuento = descuento;
+		}else {
+			throw new InvalidParameterException("[WARNING] El descuento debe ser mayor o igual a cero");
+		}
 	}
+
 
 	public Cliente getCliente() {
 		return cliente;

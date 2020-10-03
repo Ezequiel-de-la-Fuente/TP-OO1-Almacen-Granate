@@ -43,7 +43,11 @@ public class Articulo {
 
 	public void setCodBarras(String codBarras) {
 		//TODO: Hacer la comprobaciï¿½n con el CU de cod de barras 
-		this.codBarras = codBarras;
+		if(validarCodBarras(codBarras))
+			this.codBarras = codBarras;
+		else {
+			throw new InvalidParameterException("[WARNING] El código de barras es invalido.");
+		}
 	}
 
 	public double getPrecio() {

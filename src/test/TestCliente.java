@@ -7,7 +7,7 @@ public class TestCliente {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Contacto contacto = new Contacto("anafc@gmail.com", "1130303456", new Ubicacion(28, 10));
+		Contacto contacto = new Contacto("anafc@gmail.com", "11 3030 3456", new Ubicacion(28, 10));
 		Cliente cliente1=new Cliente(1,contacto,"Fernandez","Ana",36500548);
 		System.out.println(cliente1);
 		

@@ -2,7 +2,7 @@ package test.CU;
 
 import comercio.Articulo;
 
-public class TestC02 {
+public class TestC07 {
 
 	public static void main(String[] args) {
 		Articulo articulo = new Articulo("Gallo Snack Salados", "7790070411365", 60);

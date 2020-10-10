@@ -32,7 +32,7 @@ public class TestDiaRetiro {
 		}
 		
 		try {
-			diaretiro1.setIntervalo(25);
+			diaretiro1.setIntervalo(-25);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

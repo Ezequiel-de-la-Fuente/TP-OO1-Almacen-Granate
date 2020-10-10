@@ -12,7 +12,7 @@ public class TestC08 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		 Contacto con =new Contacto("anafc@hotmail", "150303456", new Ubicacion(-45, 88));
+		 Contacto con =new Contacto("anafc@hotmail.com", "15 0302 3456", new Ubicacion(-45, 88));
 		 Cliente Ana = new Cliente(1, con, "Fernandez", "Analia", 36500548); 
 		  Articulo pepas=new Articulo("Pepas Pig","c-odigo-barra" , 9.50);
 		  Articulo choco=new Articulo("Chocolate Milka","c-odigo-barra" , 80.50);

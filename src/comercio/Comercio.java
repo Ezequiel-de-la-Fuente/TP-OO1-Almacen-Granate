@@ -262,7 +262,7 @@ public class Comercio extends Actor {
 		
 		for(int i = 0; i<lstDiaRetiro.size(); i++) {
 			if(nuevoDiaRetiro.equals(lstDiaRetiro.get(i))) {
-				throw new Exception("El dÃ­a ya existe." + nuevoDiaRetiro);
+				throw new Exception("El día ya existe." + nuevoDiaRetiro);
 			}
 		}
 		lstDiaRetiro.add(nuevoDiaRetiro);

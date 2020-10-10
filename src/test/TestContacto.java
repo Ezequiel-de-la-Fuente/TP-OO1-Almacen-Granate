@@ -28,7 +28,7 @@ public class TestContacto {
 		}
 
 		try {
-			contacto.setEmail("pepito @roquero.com.ar");
+			contacto.setEmail("a@b.com");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

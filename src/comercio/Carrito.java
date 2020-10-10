@@ -2,6 +2,8 @@ package comercio;
 import java.security.InvalidParameterException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+
+
 import java.time.LocalTime;
 
 
@@ -36,6 +38,8 @@ public class Carrito{
 		this.id = Carrito.cantidad;
 		setFecha(fecha);
 		setHora(hora);
+		//Cuando se crea no debería autosetearse en false? Y después en el total carrito o algun otro lado que 
+		//se cambie a true? 
 		setCerrado(cerrado);
 		setDescuento(descuento);
 		setLstItemcarrito(lstItemcarrito);
@@ -72,7 +76,7 @@ public class Carrito{
 			throw new InvalidParameterException("[WARNING] La hora no puede ser nula");
 		}
 	}
-
+	//Esto no debería ser getCerrado? 
 	public boolean isCerrado() {
 		return cerrado;
 	}
@@ -85,7 +89,7 @@ public class Carrito{
 		return descuento;
 	}
 
-	public void setDescuento(double descuento) {
+	protected void setDescuento(double descuento) {
 		if (descuento>=0) {
 			this.descuento = descuento;
 		}else {
@@ -198,6 +202,7 @@ public class Carrito{
 	//CU 10
 	public double calcularTotalCarrito(){
 		double total = 0;
+		//Faltaría chequear que la lista no este vacia? 
 		for (Itemcarrito itemcarrito : lstItemcarrito) {
 			total+=itemcarrito.calcularSubTotalItem();
 		}
@@ -252,7 +257,19 @@ public class Carrito{
 			setDescuento(porcentajeDescuentoDia);
 		}
 	}
+	
+	//CU 15
+	public double totalAPagarCarrito() {
+		double total;
+		if(!lstItemcarrito.isEmpty()) {
+			total = calcularTotalCarrito() - getDescuento();
+			return total;
+		}
+		else {
+			throw new InvalidParameterException("El carrito no contiene items aún cargados.");
+		}
+	}
+	
+	
+	
 }
-	
-	
-	

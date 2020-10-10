@@ -10,8 +10,8 @@ import comercio.Carrito;
 
 public class TestC10 {
     public static void main(final String[] args) {
-        Articulo articulo = new Articulo("Coca-Cola", "| ||||| || ||| |", 125);
-        Articulo articulo2 = new Articulo("Manaos","|||| ||| |||",50);
+        Articulo articulo = new Articulo("Coca-Cola", "7790070411365", 125);
+        Articulo articulo2 = new Articulo("Manaos","7790070411365",50);
         Itemcarrito itemcarrito = new Itemcarrito(5,articulo);
         Itemcarrito itemcarrito2 = new Itemcarrito(10, articulo2);
         ArrayList<Itemcarrito> lstItemcarrito = new ArrayList<Itemcarrito>();

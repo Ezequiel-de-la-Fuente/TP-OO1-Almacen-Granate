@@ -42,7 +42,6 @@ public class Articulo {
 	}
 
 	public void setCodBarras(String codBarras) {
-		//TODO: Hacer la comprobaci�n con el CU de cod de barras 
 		if(validarCodBarras(codBarras))
 			this.codBarras = codBarras;
 		else {

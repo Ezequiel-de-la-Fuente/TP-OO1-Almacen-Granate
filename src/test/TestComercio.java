@@ -7,7 +7,7 @@ public class TestComercio {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Contacto contacto = new Contacto("almacen@gmail.com", "1131237897", new Ubicacion(31, 12));
+		Contacto contacto = new Contacto("almacen@gmail.com", "11 3123 7897", new Ubicacion(31, 12));
 		Comercio almacen = new Comercio(24,contacto,"Granate-Store","30-52745070-1",100,15.50,28,3,5);
 		System.out.println(almacen);
 		try {

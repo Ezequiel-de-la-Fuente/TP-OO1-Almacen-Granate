@@ -1,6 +1,8 @@
 package comercio;
 
 import java.security.InvalidParameterException;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 public class Contacto {
 	private String email;
@@ -20,7 +22,8 @@ public class Contacto {
 
 	public void setEmail(String email) {
 		if(email!=null) {
-			this.email = email;			
+			if(validarEmail(email)) this.email = email;
+			else throw new InvalidParameterException("[WARNING] El email no es valido");	
 		}else {
 			throw new InvalidParameterException("[WARNING] El email no debe ser nulo");
 		}
@@ -32,7 +35,10 @@ public class Contacto {
 
 	public void setCelular(String celular) {
 		if(celular!=null) {
-			this.celular = celular;			
+			if(validarCelular(celular, " "))
+				this.celular = celular;
+			else
+			throw new InvalidParameterException("[WARNING] El celular no es valido");
 		}else {
 			throw new InvalidParameterException("[WARNING] El celular no debe ser nulo");
 		}
@@ -65,4 +71,46 @@ public class Contacto {
 		return sonIguales;
 	}
 	
+	private boolean validarEmail(String email){
+		boolean valido = false;
+		Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+		Matcher mather = pattern.matcher(email);
+		valido = mather.find();
+		return valido;
+	}
+
+	private boolean validarCelular(String celular, String delim){
+		boolean valido = false;
+		try {
+			int posDelimUno = celular.indexOf(delim);
+			String codigoArea = celular.substring(0, posDelimUno);
+
+
+			int posDelimDos = celular.indexOf(delim, posDelimUno+1);
+			String primeraParte = null;
+
+			primeraParte = celular.substring(posDelimUno+1,posDelimDos);
+			
+
+			String segundaParte = celular.substring(posDelimDos+1);
+			if(isNumeric(codigoArea) && isNumeric(primeraParte) && isNumeric(segundaParte)){
+				if(segundaParte.length()==4){
+					valido = (primeraParte.length() + segundaParte.length() + codigoArea.length())==10;
+				}
+			}
+		} catch (Exception e) {
+			// System.out.println(e);
+		}
+		return valido;
+		
+	}
+
+	private boolean isNumeric(String cadena){
+		try {
+			Integer.parseInt(cadena);
+			return true;
+		} catch (NumberFormatException nfe){
+			return false;
+		}
+	}
 }

@@ -28,7 +28,11 @@ public class Entrega {
 
 	public void setFecha(LocalDate fecha) {
 		if (fecha != null) {
-			this.fecha = fecha;
+			if(fecha.isAfter(LocalDate.now()) || fecha.isEqual(LocalDate.now())){
+				this.fecha = fecha;
+			}else{
+				throw new InvalidParameterException("[WARNING] La fecha no puede ser anterior al dia actual");
+			}
 		}else {
 			throw new InvalidParameterException("[WARNING] La fecha no puede ser nula");
 		}

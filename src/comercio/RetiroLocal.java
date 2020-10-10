@@ -6,7 +6,7 @@ import java.time.LocalTime;
 
 public class RetiroLocal extends Entrega {
 	private LocalTime horaEntrega;
-	//TODO: ¿Que respete un horario? 7 a 18 por ejemplo
+	//TODO: ï¿½Que respete un horario? 7 a 18 por ejemplo
 	public RetiroLocal(LocalDate fecha, boolean efectivo, LocalTime horaEntrega) {
 		super(fecha, efectivo);
 		setHoraEntrega(horaEntrega);

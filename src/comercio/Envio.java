@@ -14,8 +14,8 @@ public class Envio extends Entrega {
 	//TODO: Agregar un limite superior a costo.
 	public Envio(LocalDate fecha, boolean efectivo, LocalTime horaHasta, LocalTime horaDesde, double costo, Ubicacion ubicacion) {
 		super(fecha, efectivo);
-		setHoraHasta(horaHasta);
 		setHoraDesde(horaDesde);
+		setHoraHasta(horaHasta);
 		setCosto(costo);
 		setUbicacion(ubicacion);
 	}
@@ -26,9 +26,13 @@ public class Envio extends Entrega {
 	
 	public void setHoraHasta(LocalTime horaHasta) {
 		if(horaHasta!=null) {
-			this.horaHasta = horaHasta;
+			if(horaHasta.isAfter(horaDesde)){
+				this.horaHasta = horaHasta;
+			}else{
+				throw new InvalidParameterException("[WARNING] La horaHasta no debe ser anterior a la horaDesde");
+			}
 		}else {
-			throw new InvalidParameterException("[WARNING] La hora no puede ser nula");
+			throw new InvalidParameterException("[WARNING] La horaHasta no puede ser nula");
 		}
 	}
 	
@@ -37,9 +41,15 @@ public class Envio extends Entrega {
 	}
 	public void setHoraDesde(LocalTime horaDesde) {
 		if(horaDesde!=null) {
-			this.horaDesde = horaDesde;
+				if(horaHasta==null){
+					this.horaDesde = horaDesde;
+				}else if(horaHasta.isAfter(horaDesde)){
+					this.horaDesde = horaDesde;
+				}else{
+					throw new InvalidParameterException("[WARNING] La horaDesde no puede ser posterior a la horaHasta");
+				}
 		}else {
-			throw new InvalidParameterException("[WARNING] La hora no puede ser nula");
+			throw new InvalidParameterException("[WARNING] La horaDesde no puede ser nula");
 		}
 	}
 	public double getCosto() {

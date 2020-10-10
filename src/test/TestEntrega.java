@@ -18,7 +18,11 @@ public class TestEntrega {
 			System.out.println(e.getMessage());
 		}
 		
-		entrega.setFecha(LocalDate.of(2010, 6, 26));
+		try {
+			entrega.setFecha(LocalDate.of(2010, 6, 26));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		System.out.println("Fecha de entrega = " + entrega.getFecha() +".");
 	}
 

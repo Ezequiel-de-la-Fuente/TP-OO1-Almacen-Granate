@@ -5,7 +5,7 @@ import comercio.Itemcarrito;
 
 public class TestCU9 {
     public static void main(String[] args) {
-        Articulo articulo = new Articulo("Coca-Cola", "| ||||| || ||| |", 125);
+        Articulo articulo = new Articulo("Coca-Cola", "7790070411365", 125);
         Itemcarrito itemcarrito = new Itemcarrito(5,articulo);
         // System.out.println(itemcarrito);
 

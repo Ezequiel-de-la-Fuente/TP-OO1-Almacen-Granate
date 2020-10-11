@@ -78,7 +78,7 @@ public class Comercio extends Actor {
 		
 		if(!esValido)
 		{
-			throw new InvalidParameterException("[WARNING] El cuit ingresado es invÃ¡lido");
+			throw new InvalidParameterException("[WARNING] El cuit ingresado es invÃƒÂ¡lido");
 		}
 		
 		return esValido;
@@ -195,42 +195,49 @@ public class Comercio extends Actor {
 		}
 		return hora;
 	}
-	// CU 3.
-	public List<Turno> generarTurnosLibres(LocalDate fecha) throws Exception{ // 
+	public List<Turno> generarTurnosLibres(LocalDate fecha) throws Exception{ // creamos el metodo de tipo "Lista" de turnos
 		
-		List<Turno> agenda = new ArrayList<Turno>();
+		List<Turno> agenda = new ArrayList<Turno>(); //instanciamos una lista de turnos llamada agenda
 				
-		int indiceDiaSemana= getIndiceDiaSemana(fecha); // 
+		int indiceDiaSemana= getIndiceDiaSemana(fecha); //instanciamos un obj. de tipo int donde se va a guardar el dia de la fecha ingresada
 				
-		if(indiceDiaSemana ==  -5)
-			throw new Exception("En la fecha ingresada no se realizan entregas!"+ fecha);
+		if(indiceDiaSemana > 7 || indiceDiaSemana < 1) //creamos la excepcion en caso que no sea valido el dia
+			throw new Exception("En la fecha ingresada no se realizan entregas!"+ fecha); 
 		
-		LocalTime hora= lstDiaRetiro.get(indiceDiaSemana).getHoraDesde();//
+		LocalTime hora= lstDiaRetiro.get(indiceDiaSemana).getHoraDesde();//instanciamos un objeto de tipo LocalTime para guardar
+		                                                                // la "hora desde" (apertura de comercio) de la fecha ingresada
 		
-		while (hora.isBefore(lstDiaRetiro.get(indiceDiaSemana).getHoraHasta())) { // 
-			boolean ocupado = getEstado(hora);
-			Turno turno = new Turno(fecha , hora, ocupado); // 
+		while (hora.isBefore(lstDiaRetiro.get(indiceDiaSemana).getHoraHasta())) { // mientras la "hora desde" sea menor a "hora hasta" del comercio
+			boolean ocupado = getEstado(hora); // creamos un booleando "ocupado" donde guardamos 
+			if(ocupado == false) {   //si ocupado es false
+			Turno turno = new Turno(fecha , hora, ocupado); // instanciamos un turno y lo agregamos a la lista
 			agenda.add(turno); //
-			hora= hora.plusMinutes(lstDiaRetiro.get(indiceDiaSemana).getIntervalo());// 
+			}
+			hora= hora.plusMinutes(lstDiaRetiro.get(indiceDiaSemana).getIntervalo());// Le agregamos el intervalo a la hora desde de dia retiro
+		
 		}
-		return agenda;
+		return agenda; //retornamos una lista de turnos
 	   }
 	// CU 4.
-	public List<Turno> generarTurnosOcupados(LocalDate fecha) throws Exception{ // Retorna una lista de objetos de tipo Turno
+	public List<Turno> generarTurnosOcupados(LocalDate fecha) throws Exception{ // 
 		
-		List<Turno> agenda = new ArrayList<Turno>(); //creamos la agenda que retornaremos con nuestros turnos ocupados
-		int indiceDiaSemana= getIndiceDiaSemana(fecha); // 				
-		if(indiceDiaSemana ==  -5)  //si no hay ningun dia que coincida significa que el local no abre
-			throw new Exception("No se realizan entregas en la fecha ingresada!!!"+ fecha);
+		List<Turno> agenda = new ArrayList<Turno>(); //
 		
-		LocalTime hora= lstDiaRetiro.get(indiceDiaSemana).getHoraDesde();// creamos la variable hora y guardamos la "hora desde" del dia de la semana que abre nuestro comercio.
-		while (hora.isBefore(lstDiaRetiro.get(indiceDiaSemana).getHoraHasta())) { // mientras la horadesde sea menor a la hora hasta
+		int indiceDiaSemana= getIndiceDiaSemana(fecha); // 	
+		
+		if(indiceDiaSemana > 7 || indiceDiaSemana < 1) //
+			throw new Exception("En la fecha ingresada no se realizan entregas!"+ fecha); 
+		
+		LocalTime hora= lstDiaRetiro.get(indiceDiaSemana).getHoraDesde();//  
+		while (hora.isBefore(lstDiaRetiro.get(indiceDiaSemana).getHoraHasta())) { // 
 			boolean ocupado = getEstado(hora);
-			Turno turno = new Turno(fecha , hora, ocupado); // creamos un turno asignando: fecha ingresada, horadesde del dia que abre, true=ocupado.
-			agenda.add(turno); // agregamos el turno a nuestra lista de turnos ocupos
-			hora= hora.plusMinutes(lstDiaRetiro.get(indiceDiaSemana).getIntervalo());// le agregamos el intervalo a la horadesde
+			if(ocupado == true) {
+			Turno turno = new Turno(fecha , hora, ocupado); // 
+			agenda.add(turno); // 
+			}
+			hora= hora.plusMinutes(lstDiaRetiro.get(indiceDiaSemana).getIntervalo());// 
 		}
-		return agenda; //retornamos la agenda
+		return agenda; //
 	   }
 	// CU 5.
 	public List<Turno> generarAgenda(LocalDate fecha) throws Exception{ // 
@@ -243,7 +250,7 @@ public class Comercio extends Actor {
 		
 		LocalTime hora= lstDiaRetiro.get(indiceDiaSemana).getHoraDesde();//
 		while (hora.isBefore(lstDiaRetiro.get(indiceDiaSemana).getHoraHasta())) { // 
-			ocupado=getEstado(hora); //Reutilizaci�n
+			ocupado=getEstado(hora); //Reutilización
 			Turno turno = new Turno(fecha , hora, ocupado); //
 			hora= hora.plusMinutes(lstDiaRetiro.get(indiceDiaSemana).getIntervalo());// 
 			agenda.add(turno);
@@ -262,7 +269,7 @@ public class Comercio extends Actor {
 		
 		for(int i = 0; i<lstDiaRetiro.size(); i++) {
 			if(nuevoDiaRetiro.equals(lstDiaRetiro.get(i))) {
-				throw new Exception("El d�a ya existe." + nuevoDiaRetiro);
+				throw new Exception("El día ya existe." + nuevoDiaRetiro);
 			}
 		}
 		lstDiaRetiro.add(nuevoDiaRetiro);

@@ -38,7 +38,7 @@ public class Cliente extends Actor {
     	String auxiliar = Integer.toString(dni);
     	boolean retorno = false;
     	
-    	if(auxiliar.length()==8)
+    	if(auxiliar.length()>=7)
     	{
     		retorno = true;
     	}

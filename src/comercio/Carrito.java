@@ -9,7 +9,6 @@ import java.time.LocalTime;
 
 public class Carrito{
 
-	private static int cantidad = 0;
 	private int id;
 	private LocalDate fecha;
 	private LocalTime hora;
@@ -20,24 +19,24 @@ public class Carrito{
 	private Entrega entrega;
 	
 	public Carrito(LocalDate fecha, LocalTime hora,
-			boolean cerrado, double descuento, Cliente cliente, Entrega entrega) {
+			boolean cerrado, double descuento, Cliente cliente, Entrega entrega, int id) {
 				
-		this.id = Carrito.cantidad;
+		this.id = id;
 		setFecha(fecha);
 		setHora(hora);
 		setCerrado(cerrado);
 		setDescuento(descuento);
 		setEntrega(entrega);
+		setCliente(cliente);
 		lstItemcarrito = new ArrayList<Itemcarrito>();
-		Carrito.cantidad++;
-		
 	}
 	public Carrito(LocalDate fecha, LocalTime hora,
-			boolean cerrado, double descuento, Cliente cliente) {
+			boolean cerrado, double descuento, Cliente cliente, int id) {
 				
-		this.id = Carrito.cantidad;
+		this.id = id;
 		setFecha(fecha);
 		setHora(hora);
+		setCliente(cliente);
 		//Cuando se crea no debería autosetearse en false? Y después en el total carrito o algun otro lado que 
 		//se cambie a true? 
 		setCerrado(cerrado);

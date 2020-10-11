@@ -38,7 +38,7 @@ public class Carrito{
 		this.id = Carrito.cantidad;
 		setFecha(fecha);
 		setHora(hora);
-		//Cuando se crea no debería autosetearse en false? Y después en el total carrito o algun otro lado que 
+		//Cuando se crea no deberÃ­a autosetearse en false? Y despuÃ©s en el total carrito o algun otro lado que 
 		//se cambie a true? 
 		setCerrado(cerrado);
 		setDescuento(descuento);
@@ -76,7 +76,7 @@ public class Carrito{
 			throw new InvalidParameterException("[WARNING] La hora no puede ser nula");
 		}
 	}
-	//Esto no debería ser getCerrado? 
+	//Esto no deberÃ­a ser getCerrado? 
 	public boolean isCerrado() {
 		return cerrado;
 	}
@@ -174,7 +174,10 @@ public class Carrito{
 				{
 					lstItemcarrito.get(indiceItem).setCantidad(cantidadExistente-cantidad);
 				}
-				
+				else if(cantidadExistente<cantidad)
+				{
+					throw new InvalidParameterException("[WARNING] La cantidad a borrar es mayor que la existente en el carrito");
+				}
 			}
 			
 		if(indiceItem==-1)//Si no esta
@@ -202,7 +205,7 @@ public class Carrito{
 	//CU 10
 	public double calcularTotalCarrito(){
 		double total = 0;
-		//Faltaría chequear que la lista no este vacia? 
+		//FaltarÃ­a chequear que la lista no este vacia? 
 		for (Itemcarrito itemcarrito : lstItemcarrito) {
 			total+=itemcarrito.calcularSubTotalItem();
 		}
@@ -268,7 +271,7 @@ public class Carrito{
 			return total;
 		}
 		else {
-			throw new InvalidParameterException("El carrito no contiene items aún cargados.");
+			throw new InvalidParameterException("El carrito no contiene items aÃºn cargados.");
 		}
 	}
 	

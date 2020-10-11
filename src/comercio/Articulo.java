@@ -4,7 +4,7 @@ import java.security.InvalidParameterException;
 
 public class Articulo {
 
-	private static int count = 0;
+	private static int count = 1;
 	private int id;
 	private String nombre;
 	private String codBarras;

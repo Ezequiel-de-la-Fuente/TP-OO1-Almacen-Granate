@@ -32,7 +32,6 @@ public class TestArticulo {
 			System.out.println(e.getMessage());
 		}
 		
-		//TODO: Falta la prueba del cod de barras que se hace con el CU 
 
 	}
 

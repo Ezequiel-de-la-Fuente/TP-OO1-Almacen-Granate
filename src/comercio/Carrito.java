@@ -260,9 +260,11 @@ public class Carrito{
 	
 	//CU 15
 	public double totalAPagarCarrito() {
+		double parcial;
 		double total;
 		if(!lstItemcarrito.isEmpty()) {
-			total = calcularTotalCarrito() - getDescuento();
+			parcial = calcularTotalCarrito() * getDescuento()/100;
+			total = calcularTotalCarrito() - parcial;
 			return total;
 		}
 		else {

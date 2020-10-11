@@ -28,7 +28,6 @@ public class TestC02 {
 		Carrito carrito1 = new Carrito (LocalDate.now(), LocalTime.now(), false, 20.50,cliente,retiroLocal);
 		Carrito carrito2 = new Carrito (LocalDate.now(), LocalTime.now(), false, 20.50,cliente,retiroLocal1);
 		Carrito carrito3 = new Carrito (LocalDate.now(), LocalTime.now(), false, 20.50,cliente,retiroLocal2);
-
 		ArrayList<Carrito> listaCarritos = new ArrayList<Carrito>();
 		
 		try {
@@ -41,7 +40,6 @@ public class TestC02 {
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());
-
 		}
 		try {
 			almacen.agregarDiaRetiro(5, LocalTime.of(8, 30),LocalTime.of(20,30), 30);
@@ -50,24 +48,16 @@ public class TestC02 {
 			almacen.agregarDiaRetiro(2,LocalTime.of( 8, 30), LocalTime.of( 19, 30),30);
 			almacen.agregarDiaRetiro(3,LocalTime.of( 8, 00), LocalTime.of( 21, 00),30);
 			almacen.agregarDiaRetiro(4,LocalTime.of( 8, 00), LocalTime.of( 22, 00),30);
-			almacen.agregarDiaRetiro(6,LocalTime.of( 8, 30), LocalTime.of( 22, 30),30);
-						
+			almacen.agregarDiaRetiro(6,LocalTime.of( 8, 30), LocalTime.of( 22, 30),30);						
 			System.out.println(almacen.getLstDiaRetiro());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		}
-		
+		}	
 		try {
-			//while(almacen.traerHoraRetiro(LocalDate.now())!= null) {
-			for(int i = 0; i< listaCarritos.size();i++) {
 			System.out.println("Hora:" + almacen.traerHoraRetiro(LocalDate.now()));
-			}
-			//}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
-
 	}
 
 }

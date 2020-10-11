@@ -49,6 +49,7 @@ public class TestC14 {
         } catch (Exception e) {
             System.out.println(e);
         }
+        System.out.println(carrito.getDescuento());
 
 	}
 

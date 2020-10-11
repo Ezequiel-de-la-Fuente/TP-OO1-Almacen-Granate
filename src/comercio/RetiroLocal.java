@@ -6,7 +6,6 @@ import java.time.LocalTime;
 
 public class RetiroLocal extends Entrega {
 	private LocalTime horaEntrega;
-	//TODO: �Que respete un horario? 7 a 18 por ejemplo
 	public RetiroLocal(LocalDate fecha, boolean efectivo, LocalTime horaEntrega) {
 		super(fecha, efectivo);
 		setHoraEntrega(horaEntrega);
@@ -18,7 +17,11 @@ public class RetiroLocal extends Entrega {
 
 	public void setHoraEntrega(LocalTime horaEntrega) {
 		if (horaEntrega != null) {
-			this.horaEntrega = horaEntrega;
+			if(horaEntrega.isAfter(LocalTime.now())){
+				this.horaEntrega = horaEntrega;
+			}else{
+				throw new InvalidParameterException("[WARNING] La hora de entrega no puede ser anterior a la actual");
+			}
 		}else {
 			throw new InvalidParameterException("[WARNING] La hora de entrega no puede ser nula");
 		}

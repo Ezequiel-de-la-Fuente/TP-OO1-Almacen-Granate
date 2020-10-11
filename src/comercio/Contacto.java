@@ -8,7 +8,7 @@ public class Contacto {
 	private String email;
 	private String celular;
 	private Ubicacion ubicacion;
-	//TODO: Hacer una validacion para email y para celular.
+	
 	public Contacto(String email, String celular, Ubicacion ubicacion) {
 		super();
 		setEmail(email);

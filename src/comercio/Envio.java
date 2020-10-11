@@ -10,8 +10,6 @@ public class Envio extends Entrega {
 	private LocalTime horaDesde;
 	private double costo;
 	private Ubicacion ubicacion;
-	//TODO: Agregar la comprobasion horaDesde a horaHasta se respete que la primera sea antes de la segunda.
-	//TODO: Agregar un limite superior a costo.
 	public Envio(LocalDate fecha, boolean efectivo, LocalTime horaHasta, LocalTime horaDesde, double costo, Ubicacion ubicacion) {
 		super(fecha, efectivo);
 		setHoraDesde(horaDesde);

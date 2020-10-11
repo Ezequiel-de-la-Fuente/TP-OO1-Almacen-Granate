@@ -9,7 +9,7 @@ import comercio.Carrito;
 import comercio.Cliente;
 import comercio.Comercio;
 import comercio.Contacto;
-import comercio.Entrega;
+// import comercio.Entrega;
 import comercio.RetiroLocal;
 import comercio.Ubicacion;
 
@@ -18,7 +18,7 @@ public class TestC02 {
 	public static void main(String[] args) {
 		Contacto contacto = new Contacto("almacen@gmail.com", "15 4567 7894", new Ubicacion(31, 12));
 		Comercio almacen = new Comercio(24,contacto,"Granate-Store","30-52745070-1",100,15.50,28,3,5);
-		Entrega entrega = new Entrega(LocalDate.now(), true);
+		// Entrega entrega = new Entrega(LocalDate.now(), true);
 		Cliente cliente = new Cliente(1, contacto, "Abbruzzese","Maximiliano", 38154177);
 		Articulo pepas=new Articulo("Pepas Pig","7791762131394" , 9.50);
 		RetiroLocal retiroLocal = new RetiroLocal(LocalDate.now(), true, LocalTime.of(15,30));

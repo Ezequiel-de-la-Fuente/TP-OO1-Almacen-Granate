@@ -163,15 +163,16 @@ public class Comercio extends Actor {
 		return indiceDiaSemana;
 	}
 	
-	public boolean getEstado(LocalTime hora) {
-		boolean estado = false;
-		if(lstDiaRetiro != null) {
-			for(int i = 0; i < lstCarrito.size() ; i++) {
-				Entrega entrega = lstCarrito.get(i).getEntrega();
-				if(entrega instanceof RetiroLocal) {
-					LocalTime pruebaLocalTime = ((RetiroLocal)entrega).getHoraEntrega();
-					if(hora.equals(pruebaLocalTime)) {
-						estado = true;
+		
+		public boolean getEstado(LocalTime hora) { //este metodo es para saber si el turno esta ocupado(devuelve true) o no (devuelve false) 
+		boolean estado = false; //creamos un booleano llamado estado que devuelve false
+		if(lstDiaRetiro != null) { //si la lista dia Retiro no esta vacia
+			for(int i = 0; i < lstCarrito.size() ; i++) { //obtenemos el tamaño de nuestra lista de carritos
+				Entrega entrega = lstCarrito.get(i).getEntrega(); //instanciamos una entrega para guardar la que tiene en posicion "i" la lista de carrito
+				if(entrega instanceof RetiroLocal) { //si la entrega es de tipo retiro local
+					LocalTime horaDeEntrega = ((RetiroLocal)entrega).getHoraEntrega(); //instanciamos un objeto de tipo localtime para guardar la "hora entrega" de Retiro local
+					if(hora.equals(horaDeEntrega)) { //si la "hora desde" que ingreso en el metodo es igual a la "Hora de entrega" de retiro local
+						estado = true; // el booleano cambia devuelve false
 					}
 				}
 			}
@@ -195,6 +196,8 @@ public class Comercio extends Actor {
 		}
 		return hora;
 	}
+	
+	// CU 3.
 	public List<Turno> generarTurnosLibres(LocalDate fecha) throws Exception{ // creamos el metodo de tipo "Lista" de turnos
 		
 		List<Turno> agenda = new ArrayList<Turno>(); //instanciamos una lista de turnos llamada agenda

@@ -153,15 +153,13 @@ public class Comercio extends Actor {
 	}
 	
 	public int getIndiceDiaSemana(LocalDate fecha) {
-		Iterator <DiaRetiro> mi_iterator = lstDiaRetiro.iterator();
+		
 		int indiceDiaSemana= -5; // 
-		while (mi_iterator.hasNext()) {   // 
-            //
-			int i= 0;
-			if(fecha.getDayOfWeek().getValue() == lstDiaRetiro.get(i).getDiaSemana()) { // 
-					indiceDiaSemana=i;
+		for( int i=0; i < lstDiaRetiro.size();i++) {   // 
+				if(fecha.getDayOfWeek().getValue() == lstDiaRetiro.get(i).getDiaSemana()) { // 
+				indiceDiaSemana=i;
 			}
-			i=i+1;
+			
 		}
 		return indiceDiaSemana;
 	}
@@ -181,8 +179,10 @@ public class Comercio extends Actor {
 		return estado;
 	}
 	// CU 2.
-	public LocalTime traerHoraRetiro(LocalDate fecha) {
+	public LocalTime traerHoraRetiro(LocalDate fecha) throws Exception {
 		int indiceDiaSemana = getIndiceDiaSemana(fecha);
+		if(indiceDiaSemana ==  -5)  //si no hay ningun dia que coincida significa que el local no abre
+			throw new Exception("No se realizan entregas en la fecha ingresada!!!"+ fecha);
 		LocalTime hora = lstDiaRetiro.get(indiceDiaSemana).getHoraDesde();
 		boolean turnoLibre = false;
 		while(!turnoLibre) {
@@ -190,8 +190,9 @@ public class Comercio extends Actor {
 				turnoLibre = true;
 			}
 			else {
-				hora = hora.plusMinutes(lstDiaRetiro.get(indiceDiaSemana).getIntervalo());
+				hora = hora.plusMinutes(lstDiaRetiro.get(indiceDiaSemana).getIntervalo());	
 			}
+			return hora;
 		}
 		return hora;
 	}

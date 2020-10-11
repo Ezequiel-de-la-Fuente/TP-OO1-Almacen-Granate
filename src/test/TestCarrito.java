@@ -16,7 +16,7 @@ public class TestCarrito {
 		// TODO Auto-generated method stub
 		
 		Entrega entrega = new Entrega(LocalDate.now(), true);
-		Contacto contacto1 = new Contacto("abbruzzesemax@gmail.com", "1151609898" ,new Ubicacion(28, 15));
+		Contacto contacto1 = new Contacto("abbruzzesemax@gmail.com", "11 5160 9898" ,new Ubicacion(28, 15));
 		Cliente cliente = new Cliente(1, contacto1, "Abbruzzese","Maximiliano", 38154177);
 		Carrito carrito1 = new Carrito (LocalDate.now(), LocalTime.now(), false, 20.50,cliente,entrega);
 		carrito1.agregarItem(new Articulo("coca", "11111111", 300), 3);

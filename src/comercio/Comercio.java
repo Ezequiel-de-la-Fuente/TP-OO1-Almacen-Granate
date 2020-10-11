@@ -6,7 +6,6 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import java.util.Iterator;
 
 public class Comercio extends Actor {
 	
@@ -170,7 +169,8 @@ public class Comercio extends Actor {
 			for(int i = 0; i < lstCarrito.size() ; i++) {
 				Entrega entrega = lstCarrito.get(i).getEntrega();
 				if(entrega instanceof RetiroLocal) {
-					if(hora == ((RetiroLocal) entrega).getHoraEntrega()) {
+					LocalTime pruebaLocalTime = ((RetiroLocal)entrega).getHoraEntrega();
+					if(hora.equals(pruebaLocalTime)) {
 						estado = true;
 					}
 				}
@@ -192,7 +192,6 @@ public class Comercio extends Actor {
 			else {
 				hora = hora.plusMinutes(lstDiaRetiro.get(indiceDiaSemana).getIntervalo());	
 			}
-			return hora;
 		}
 		return hora;
 	}

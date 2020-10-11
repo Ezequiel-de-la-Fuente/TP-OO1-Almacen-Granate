@@ -39,17 +39,7 @@ public class TestC15 {
 
         System.out.println("Pero si le aplicamos un descuento del 10%, el resultado deberia ser 1125 - 1125*0.1 = " + (1125 - 1125*0.1));
 
-        try {
-            System.out.println("EL nuevo total es: " + carrito.calcularDescuentoDia(LocalDate.now().getDayOfWeek().getValue(), 10));
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
-        try {
-            System.out.println("EL nuevo total es: " + carrito.calcularDescuentoDia(1, 10));
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+      
         System.out.println("\n\n--TOTAL A PAGAR CON DESCUENTOS--\n");
         System.out.println("Total: " + carrito.totalAPagarCarrito());
 

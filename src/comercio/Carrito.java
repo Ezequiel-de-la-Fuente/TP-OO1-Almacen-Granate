@@ -187,9 +187,9 @@ public class Carrito{
 		return true;
 	}
 	
-	public boolean equals(Comercio comercio)
+	public boolean equals(Carrito carrito)
 	{
-		return this.id==comercio.getId();
+		return this.id==carrito.getId();
 	}
 
 	@Override

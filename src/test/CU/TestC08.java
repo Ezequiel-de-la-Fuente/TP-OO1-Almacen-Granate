@@ -30,7 +30,13 @@ public class TestC08 {
 		       }
 		  catch (Exception e) {
 					System.out.println(e.getMessage());
-				}
+				       }
+		  try {
+			  	carroEjemplo.borrarItem(papas, 2);
+		       }
+		  catch (Exception e) {
+					System.out.println(e.getMessage());
+				       }
 		carroEjemplo.borrarItem(pepas, 1);		
 		System.out.println(carroEjemplo);	  
 		  

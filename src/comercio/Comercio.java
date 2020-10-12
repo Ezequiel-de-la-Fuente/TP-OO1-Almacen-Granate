@@ -187,11 +187,11 @@ public class Comercio extends Actor {
 	}
 	
 	
-	public void agregarCarrito(LocalDate fecha, LocalTime hora,boolean cerrado, double descuento, Cliente cliente)
+	public void agregarCarrito(LocalDate fecha, LocalTime hora,boolean cerrado, double descuento, Entrega entrega Cliente cliente)
 	{
 		if(existeCliente(cliente)==-1)
 		{
-		Carrito nuevoCarrito = new Carrito(fecha, hora, cerrado, descuento, cliente, cantidadCarritos);
+		Carrito nuevoCarrito = new Carrito(fecha, hora, cerrado, descuento, cliente, entrega, cantidadCarritos);
 		lstCarrito.add(nuevoCarrito);
 		cantidadCarritos++;
 		}

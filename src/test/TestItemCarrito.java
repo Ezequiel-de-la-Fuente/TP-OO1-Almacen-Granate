@@ -10,7 +10,7 @@ public class TestItemCarrito {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Itemcarrito itemcarrito1 = new Itemcarrito (20, new Articulo("fideos", "cod98439", 17.50));
+		Itemcarrito itemcarrito1 = new Itemcarrito (20, new Articulo("fideos", "7794360936019", 17.50));
 		System.out.println(itemcarrito1);
 		
 		

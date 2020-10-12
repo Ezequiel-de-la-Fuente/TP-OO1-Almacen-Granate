@@ -19,7 +19,7 @@ public class TestCarrito {
 		Contacto contacto1 = new Contacto("abbruzzesemax@gmail.com", "11 5160 9898" ,new Ubicacion(28, 15));
 		Cliente cliente = new Cliente(1, contacto1, "Abbruzzese","Maximiliano", 38154177);
 		Carrito carrito1 = new Carrito (LocalDate.now(), LocalTime.now(), false, 20.50,cliente,entrega, 1);
-		carrito1.agregarItem(new Articulo("coca", "11111111", 300), 3);
+		carrito1.agregarItem(new Articulo("coca", "7790070411365", 300), 3);
 		
 		System.out.println("Carrito con entrega:\n");
 		System.out.println(carrito1);
@@ -36,7 +36,7 @@ public class TestCarrito {
 			System.out.println(e.getMessage());
 		}
 		Carrito carrito2 = new Carrito (LocalDate.now(), LocalTime.now(), false, 20.50,cliente, 2);
-		carrito2.agregarItem(new Articulo("coca", "11111111", 300), 3);
+		carrito2.agregarItem(new Articulo("coca", "7790070411365", 300), 3);
 
 		System.out.println("\n\nCarrito sin entrega:\n");
 		System.out.println(carrito2);

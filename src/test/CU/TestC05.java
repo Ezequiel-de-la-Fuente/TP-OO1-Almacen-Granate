@@ -24,7 +24,7 @@ public class TestC05 {
 		Entrega entrega = new Entrega(LocalDate.now(), true);
 		Cliente cliente = new Cliente(1, contacto, "Abbruzzese","Maximiliano", 38154177);
 		Articulo pepas=new Articulo("Pepas Pig","7791762131394" , 9.50);
-		Carrito carrito1 = new Carrito (LocalDate.now(), LocalTime.now(), false, 20.50,cliente,entrega);
+		Carrito carrito1 = new Carrito (LocalDate.now(), LocalTime.now(), false, 20.50,cliente,entrega, 1);
 		ArrayList<Carrito> listaCarritos = new ArrayList<Carrito>();
 		LocalDate dia = null;
 		

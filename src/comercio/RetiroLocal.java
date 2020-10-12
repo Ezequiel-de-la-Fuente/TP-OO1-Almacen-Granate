@@ -17,7 +17,7 @@ public class RetiroLocal extends Entrega {
 
 	public void setHoraEntrega(LocalTime horaEntrega) {
 		if (horaEntrega != null) {
-			if(horaEntrega.isAfter(LocalTime.now())){
+			if(horaEntrega.isAfter(LocalTime.of(8,00))){
 				this.horaEntrega = horaEntrega;
 			}else{
 				throw new InvalidParameterException("[WARNING] La hora de entrega no puede ser anterior a la actual");

@@ -25,9 +25,9 @@ public class TestC02 {
 		RetiroLocal retiroLocal1 = new RetiroLocal(LocalDate.now(), true, LocalTime.of(10,30));
 		RetiroLocal retiroLocal2 = new RetiroLocal(LocalDate.now(), true, LocalTime.of(12,30));
 
-		Carrito carrito1 = new Carrito (LocalDate.now(), LocalTime.now(), false, 20.50,cliente,retiroLocal);
-		Carrito carrito2 = new Carrito (LocalDate.now(), LocalTime.now(), false, 20.50,cliente,retiroLocal1);
-		Carrito carrito3 = new Carrito (LocalDate.now(), LocalTime.now(), false, 20.50,cliente,retiroLocal2);
+		Carrito carrito1 = new Carrito (LocalDate.now(), LocalTime.of(10,30), false, 20.50,cliente,retiroLocal, 1);
+		Carrito carrito2 = new Carrito (LocalDate.now(), LocalTime.of(12,30), false, 20.50,cliente,retiroLocal1, 2);
+		Carrito carrito3 = new Carrito (LocalDate.now(), LocalTime.of(15,30), false, 20.50,cliente,retiroLocal2, 3);
 		ArrayList<Carrito> listaCarritos = new ArrayList<Carrito>();
 		
 		try {

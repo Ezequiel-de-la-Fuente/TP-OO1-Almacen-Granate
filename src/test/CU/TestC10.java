@@ -11,7 +11,7 @@ public class TestC10 {
         Articulo articulo = new Articulo("Coca-Cola", "7790070411365", 125);
         Articulo articulo2 = new Articulo("Manaos","7790070411365",50);
 
-        Carrito carrito = new Carrito(LocalDate.now(), LocalTime.now(), false, 5, null, null);
+        Carrito carrito = new Carrito(LocalDate.now(), LocalTime.now(), false, 5, null, null, 1);
         carrito.agregarItem(articulo, 5);
         carrito.agregarItem(articulo2, 10);
 

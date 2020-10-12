@@ -21,7 +21,7 @@ public class TestC08 {
 
 		  
 		  
-		  Carrito carroEjemplo = new Carrito(LocalDate.now(), LocalTime.now(), false, 0, Ana);
+		  Carrito carroEjemplo = new Carrito(LocalDate.now(), LocalTime.now(), false, 0, Ana, 1);
 		  carroEjemplo.agregarItem(papas, 1);
 		  carroEjemplo.agregarItem(pepas, 2);
 		  System.out.println(carroEjemplo);

@@ -9,6 +9,7 @@ import comercio.Articulo;
 import comercio.Carrito;
 import comercio.Cliente;
 import comercio.Comercio;
+import comercio.RetiroLocal;
 
 public class TestCasosDeUsoGeneral {
 

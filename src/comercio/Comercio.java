@@ -9,6 +9,7 @@ import java.util.List;
 
 public class Comercio extends Actor {
 	
+	private static int cantidadCarritos = 0;
 	private String nombreComercio;
 	private String cuit;
 	private double costoFijo;
@@ -78,7 +79,7 @@ public class Comercio extends Actor {
 		
 		if(!esValido)
 		{
-			throw new InvalidParameterException("[WARNING] El cuit ingresado es invÃƒÂ¡lido");
+			throw new InvalidParameterException("[WARNING] El cuit ingresado es invÃƒÆ’Ã‚Â¡lido");
 		}
 		
 		return esValido;
@@ -144,6 +145,63 @@ public class Comercio extends Actor {
 	{
 		return this.id==comercio.getId();
 	}
+	
+	public Carrito traerCarritoPorCliente(Cliente cliente)
+	{
+		Carrito retorno=null;
+		int posicion=existeCliente(cliente);
+		
+		if(posicion!=-1)
+		{
+			retorno=lstCarrito.get(posicion);
+		}
+		
+		if(retorno==null)
+		{
+			throw new InvalidParameterException("[WARNING] No existe cliente");
+		}
+		
+		return retorno;
+		
+	}
+	
+	public int existeCliente(Cliente cliente) //Busca y si existe devuelve la posición.
+	{
+		int retorno=-1;
+		int contador=0;
+		boolean encontre=false;
+		
+		while(contador<cantidadCarritos&&!encontre)
+		{
+			Cliente clienteContador=lstCarrito.get(contador).getCliente();
+			if(clienteContador.equals(cliente))
+			{
+				encontre=true;
+				retorno=contador;
+			}
+			contador++;
+		}
+				
+		return retorno;
+		
+	}
+	
+	
+	public void agregarCarrito(LocalDate fecha, LocalTime hora,boolean cerrado, double descuento, Cliente cliente)
+	{
+		if(existeCliente(cliente)==-1)
+		{
+		Carrito nuevoCarrito = new Carrito(fecha, hora, cerrado, descuento, cliente, cantidadCarritos);
+		lstCarrito.add(nuevoCarrito);
+		cantidadCarritos++;
+		}
+		else if(existeCliente(cliente)!=-1)
+		{
+			
+			throw new InvalidParameterException("[WARNING] Ya existe un Carrito asociado con ese cliente");
+		}
+		
+	}
 
 	@Override
 	public String toString() {
@@ -167,7 +225,7 @@ public class Comercio extends Actor {
 		public boolean getEstado(LocalTime hora) { //este metodo es para saber si el turno esta ocupado(devuelve true) o no (devuelve false) 
 		boolean estado = false; //creamos un booleano llamado estado que devuelve false
 		if(lstDiaRetiro != null) { //si la lista dia Retiro no esta vacia
-			for(int i = 0; i < lstCarrito.size() ; i++) { //obtenemos el tamaño de nuestra lista de carritos
+			for(int i = 0; i < lstCarrito.size() ; i++) { //obtenemos el tamaÃ±o de nuestra lista de carritos
 				Entrega entrega = lstCarrito.get(i).getEntrega(); //instanciamos una entrega para guardar la que tiene en posicion "i" la lista de carrito
 				if(entrega instanceof RetiroLocal) { //si la entrega es de tipo retiro local
 					LocalTime horaDeEntrega = ((RetiroLocal)entrega).getHoraEntrega(); //instanciamos un objeto de tipo localtime para guardar la "hora entrega" de Retiro local
@@ -253,7 +311,7 @@ public class Comercio extends Actor {
 		
 		LocalTime hora= lstDiaRetiro.get(indiceDiaSemana).getHoraDesde();//
 		while (hora.isBefore(lstDiaRetiro.get(indiceDiaSemana).getHoraHasta())) { // 
-			ocupado=getEstado(hora); //Reutilización
+			ocupado=getEstado(hora); //ReutilizaciÃ³n
 			Turno turno = new Turno(fecha , hora, ocupado); //
 			hora= hora.plusMinutes(lstDiaRetiro.get(indiceDiaSemana).getIntervalo());// 
 			agenda.add(turno);
@@ -272,7 +330,7 @@ public class Comercio extends Actor {
 		
 		for(int i = 0; i<lstDiaRetiro.size(); i++) {
 			if(nuevoDiaRetiro.equals(lstDiaRetiro.get(i))) {
-				throw new Exception("El d�a ya existe." + nuevoDiaRetiro);
+				throw new Exception("El día ya existe." + nuevoDiaRetiro);
 			}
 		}
 		lstDiaRetiro.add(nuevoDiaRetiro);

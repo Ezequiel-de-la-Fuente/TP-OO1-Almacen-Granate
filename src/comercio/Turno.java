@@ -27,7 +27,7 @@ public class Turno {
 		if (diaTurno != null) {
 			this.diaTurno = diaTurno;
 		}else {
-			throw new InvalidParameterException("La fecha no puede ser nula.");
+			throw new InvalidParameterException("[WARNING] La fecha no puede ser nula.");
 		}
 	}
 	public LocalTime getHoraTurno() {
@@ -37,7 +37,7 @@ public class Turno {
 		if (horaTurno != null) {
 			this.horaTurno = horaTurno;
 		}else {
-			throw new InvalidParameterException("La hora no puede ser nula.");
+			throw new InvalidParameterException("[WARNING] La hora no puede ser nula.");
 		}
 	}
 	public boolean isOcupado() {

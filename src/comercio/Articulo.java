@@ -70,7 +70,7 @@ public class Articulo {
 		if (a != null) {
 			iguales = a.getId() == this.id;
 		}else {
-			throw new InvalidParameterException("El articulo no debe ser nulo.");
+			throw new InvalidParameterException("[WARNING] El articulo no debe ser nulo.");
 		}
 		return iguales;	
 	}

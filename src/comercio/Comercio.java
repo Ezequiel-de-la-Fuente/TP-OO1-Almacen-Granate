@@ -187,7 +187,7 @@ public class Comercio extends Actor {
 	}
 	
 	
-	public void agregarCarrito(LocalDate fecha, LocalTime hora,boolean cerrado, double descuento, Entrega entrega Cliente cliente)
+	public void agregarCarrito(LocalDate fecha, LocalTime hora,boolean cerrado, double descuento, Entrega entrega, Cliente cliente)
 	{
 		if(existeCliente(cliente)==-1)
 		{
@@ -195,10 +195,10 @@ public class Comercio extends Actor {
 		lstCarrito.add(nuevoCarrito);
 		cantidadCarritos++;
 		}
-		else if(existeCliente(cliente)!=-1)
+		else
 		{
 			
-			throw new InvalidParameterException("[WARNING] Ya existe un Carrito asociado con ese cliente");
+			throw new InvalidParameterException("[WARNING] Ya existe un Carrito asociado con el cliente: " + cliente.getNombres() + " " + cliente.getApellido());
 		}
 		
 	}
@@ -337,5 +337,6 @@ public class Comercio extends Actor {
 		return true;
 		
 	}
+	
 	
 }

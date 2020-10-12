@@ -224,7 +224,7 @@ public class Carrito{
 
 			return nuevoTotal;
 		}else{
-			throw new InvalidParameterException("El dia de descuento no concuerda con la fecha del carrito");
+			throw new InvalidParameterException("[WARNING] El dia de descuento no concuerda con la fecha del carrito");
 		}
 		
 	}
@@ -271,7 +271,7 @@ public class Carrito{
 			return total;
 		}
 		else {
-			throw new InvalidParameterException("El carrito no contiene items aún cargados.");
+			throw new InvalidParameterException("[WARNING] El carrito no contiene items aún cargados.");
 		}
 	}
 	

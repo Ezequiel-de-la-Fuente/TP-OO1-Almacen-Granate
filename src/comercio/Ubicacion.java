@@ -20,7 +20,7 @@ public class Ubicacion {
 		if(latitud>=-90 && latitud<=90) {
 			this.latitud = latitud;
 		}else {
-			throw new InvalidParameterException("La latitud es invalida, debe pertenecer a este intervalo: [ -90;90 ].");
+			throw new InvalidParameterException("[WARNING] La latitud es invalida, debe pertenecer a este intervalo: [ -90;90 ].");
 		}
 		
 		// -90 a 90 la latitud (grados)
@@ -35,7 +35,7 @@ public class Ubicacion {
 		if(longitud>=-180 && longitud<=180) {
 			this.longitud = longitud;
 		}else {
-			throw new InvalidParameterException("La longitud es invalida, debe pertenecer a este intervalo: [-180;180 ].");
+			throw new InvalidParameterException("[WARNING] La longitud es invalida, debe pertenecer a este intervalo: [-180;180 ].");
 		}
 		// -180 a 180 la longitud (grados)
 	}

@@ -45,7 +45,8 @@ public class TestC02 {
 			System.out.println(e.getMessage());
 		}	
 		try {
-			System.out.println("Hora:" + almacen.traerHoraRetiro(LocalDate.now()));
+			System.out.println("--HORARIO DEL PRIMER RETIRO--");
+			System.out.println("Hora: " + almacen.traerHoraRetiro(LocalDate.now()));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

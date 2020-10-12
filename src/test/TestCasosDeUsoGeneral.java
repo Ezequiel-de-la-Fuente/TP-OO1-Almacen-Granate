@@ -25,7 +25,7 @@ public class TestCasosDeUsoGeneral {
 		  Articulo papas=new Articulo("Papas Lays","7791274198991" , 20.00);
 		  
 		  
-		  almacen.agregarCarrito(LocalDate.of(2020,10 , 28), LocalTime.of(20, 55), false, 10, clienteAna);
+		  //almacen.agregarCarrito(LocalDate.of(2020,10 , 28), LocalTime.of(20, 55), false, 10, clienteAna);
 		 
 		 System.out.println(almacen);
 			

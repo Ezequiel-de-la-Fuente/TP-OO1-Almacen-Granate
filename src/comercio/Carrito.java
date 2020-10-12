@@ -165,15 +165,16 @@ public class Carrito{
 		if(indiceItem!=-1)//Si esta
 			{
 				int cantidadExistente=lstItemcarrito.get(indiceItem).getCantidad(); 
-				if(cantidadExistente<=cantidad)
+				if(cantidadExistente==cantidad)
 				{
 					lstItemcarrito.remove(indiceItem);
 				} 
-				else if(cantidadExistente>cantidad)
+				if(cantidadExistente>cantidad)
 				{
 					lstItemcarrito.get(indiceItem).setCantidad(cantidadExistente-cantidad);
 				}
-				else if(cantidadExistente<cantidad)
+				
+			        if(cantidadExistente<cantidad)
 				{
 					throw new InvalidParameterException("[WARNING] La cantidad a borrar es mayor que la existente en el carrito");
 				}

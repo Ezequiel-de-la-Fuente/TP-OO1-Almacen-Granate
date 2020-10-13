@@ -41,6 +41,10 @@ public class TestCasosDeUsoGeneral {
 		  
 		  almacen.agregarCarrito(LocalDate.of(2020,10 , 28), LocalTime.of(20, 55), false, 10,envio1, clienteAna);
 		  almacen.agregarCarrito(LocalDate.of(2020,10 , 28), LocalTime.of(20, 55), false, 10,retiroLocal, clienteMaxi);
+		  
+		  almacen.traerCarritoPorCliente(clienteAna).agregarItem(pepas, 3);
+		  almacen.traerCarritoPorCliente(clienteMaxi).agregarItem(manaos, 10);
+		 	
 		 
 		
 		 System.out.println(almacen);

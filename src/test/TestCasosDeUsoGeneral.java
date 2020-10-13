@@ -7,7 +7,7 @@ import java.util.List;
 import comercio.Contacto;
 import comercio.DiaRetiro;
 import comercio.Envio;
-import comercio.Itemcarrito;
+import comercio.ItemCarrito;
 import comercio.Ubicacion;
 import comercio.Articulo;
 import comercio.Carrito;
@@ -70,13 +70,13 @@ public class TestCasosDeUsoGeneral {
 		 System.out.println("\t--"+almacen.getNombreComercio().toUpperCase()+"--");
 		 System.out.println("Cuit: " + almacen.getCuit());
 		 System.out.println("Nuestro email: " + almacen.getContacto().getEmail());
-		 System.out.println("Teléfono: " + almacen.getContacto().getCelular());
-		 System.out.println("\t-COSTO ENVÍOS-\nCosto fijo: $" + almacen.getCostoFijo());
+		 System.out.println("Telï¿½fono: " + almacen.getContacto().getCelular());
+		 System.out.println("\t-COSTO ENVï¿½OS-\nCosto fijo: $" + almacen.getCostoFijo());
 		 System.out.println("Costo adicional por km de: $" + almacen.getCostoPorKm());
 		 System.out.println("\n\nFECHA DE DESCUENTO: " + almacen.getDiaDescuento());
 		 System.out.println("Hoy contamos con un descuento del: " + almacen.getPorcentajeDescuentoDia() + "%");
-		 System.out.println("También tenemos un descuento del: " + almacen.getPorcentajeDescuentoEfectivo() + "%, por todas tus compras en efectivo.");
-		 System.out.println("\n\t--DÍAS DE RETIRO--");
+		 System.out.println("Tambiï¿½n tenemos un descuento del: " + almacen.getPorcentajeDescuentoEfectivo() + "%, por todas tus compras en efectivo.");
+		 System.out.println("\n\t--Dï¿½AS DE RETIRO--");
 		 for (DiaRetiro diaRetiro : almacen.getLstDiaRetiro()) {
 			 switch (diaRetiro.getDiaSemana()) {
 				case 1: nombreDia = "Lunes";
@@ -94,10 +94,10 @@ public class TestCasosDeUsoGeneral {
 				case 7: nombreDia = "Domingo";
 				break;
 				}
-				System.out.println("El día " + nombreDia);
+				System.out.println("El dï¿½a " + nombreDia);
 				System.out.println("Se puede retirar desde las: " + diaRetiro.getHoraDesde() + " hs.");
 				System.out.println("Hasta las: " + diaRetiro.getHoraHasta() + " hs.");
-				System.out.println("Con un intervalo de atención de: " + diaRetiro.getIntervalo() + " minutos.");
+				System.out.println("Con un intervalo de atenciï¿½n de: " + diaRetiro.getIntervalo() + " minutos.");
 				System.out.println("");
 		 }
 		 
@@ -105,15 +105,15 @@ public class TestCasosDeUsoGeneral {
 		 for(Carrito carrito : almacen.getLstCarrito()) {
 			 int count = 1;
 			 System.out.println("Carrito: " + (carrito.getId()+1));
-			 System.out.println("Fecha de creación: " + carrito.getFecha());
-			 System.out.println("Hora de creación: " + carrito.getHora());
+			 System.out.println("Fecha de creaciï¿½n: " + carrito.getFecha());
+			 System.out.println("Hora de creaciï¿½n: " + carrito.getHora());
 			 if(!carrito.isCerrado())
 				System.out.println("El local se encuentra abierto.");
 			 else 
 				System.out.println("El local se encuentra cerrado.");
 			 System.out.println("Hoy "+ carrito.getFecha().getDayOfMonth() + " tiene un descuento del: " + carrito.getDescuento() + "%");
 			 System.out.println("\nEl carrito consta con los siguientes items: ");
-			 for (Itemcarrito itemCarrito : carrito.getLstItemcarrito()) {
+			 for (ItemCarrito itemCarrito : carrito.getLstItemcarrito()) {
 				System.out.println("-Articulo "+ count +": " + itemCarrito.getArticulo().getNombre().toUpperCase());
 				System.out.println("Cod. barras: " + itemCarrito.getArticulo().getCodBarras());
 				System.out.println("Precio: $" + itemCarrito.getArticulo().getPrecio());

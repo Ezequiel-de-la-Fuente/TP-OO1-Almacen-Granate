@@ -15,7 +15,7 @@ public class Carrito{
 	private boolean cerrado;
 	private double descuento;
 	private Cliente cliente;
-	private ArrayList<Itemcarrito> lstItemcarrito;
+	private ArrayList<ItemCarrito> lstItemcarrito;
 	private Entrega entrega;
 	
 	public Carrito(LocalDate fecha, LocalTime hora,
@@ -28,7 +28,7 @@ public class Carrito{
 		setDescuento(descuento);
 		setEntrega(entrega);
 		setCliente(cliente);
-		lstItemcarrito = new ArrayList<Itemcarrito>();
+		lstItemcarrito = new ArrayList<ItemCarrito>();
 	}
 	public Carrito(LocalDate fecha, LocalTime hora,
 			boolean cerrado, double descuento, Cliente cliente, int id) {
@@ -43,7 +43,7 @@ public class Carrito{
 		setDescuento(descuento);
 		setLstItemcarrito(lstItemcarrito);
 		setEntrega(null);
-		lstItemcarrito = new ArrayList<Itemcarrito>();
+		lstItemcarrito = new ArrayList<ItemCarrito>();
 		
 	}
 
@@ -105,11 +105,11 @@ public class Carrito{
 		this.cliente = cliente;
 	}
 
-	public ArrayList<Itemcarrito> getLstItemcarrito() {
+	public ArrayList<ItemCarrito> getLstItemcarrito() {
 		return lstItemcarrito;
 	}
 
-	public void setLstItemcarrito(ArrayList<Itemcarrito> lstItemcarrito) {
+	public void setLstItemcarrito(ArrayList<ItemCarrito> lstItemcarrito) {
 		this.lstItemcarrito = lstItemcarrito;
 	}
 
@@ -152,7 +152,7 @@ public class Carrito{
 			
 		if(indiceItem==-1)//Si no esta
 		{
-			Itemcarrito iCarrito = new Itemcarrito(cantidad,articulo);
+			ItemCarrito iCarrito = new ItemCarrito(cantidad,articulo);
 			lstItemcarrito.add(iCarrito);
 		}
 		return true;
@@ -206,7 +206,7 @@ public class Carrito{
 	public double calcularTotalCarrito(){
 		double total = 0;
 		//Faltaría chequear que la lista no este vacia? 
-		for (Itemcarrito itemcarrito : lstItemcarrito) {
+		for (ItemCarrito itemcarrito : lstItemcarrito) {
 			total+=itemcarrito.calcularSubTotalItem();
 		}
 		return total;

@@ -3,12 +3,12 @@ package comercio;
 import java.security.InvalidParameterException;
 
 
-public class Itemcarrito {
+public class ItemCarrito {
 
 	private int cantidad;
 	private Articulo articulo;
 	
-	public Itemcarrito(int cantidad, Articulo articulo) {
+	public ItemCarrito(int cantidad, Articulo articulo) {
 	
 		setCantidad(cantidad);
 		setArticulo(articulo);
@@ -35,7 +35,7 @@ public class Itemcarrito {
 		return "Cantidad: "+cantidad+", articulo: "+articulo;
 	}
 	
-	public boolean equals(Itemcarrito Itemcarrito) {
+	public boolean equals(ItemCarrito Itemcarrito) {
 		boolean sonIguales = false;
 		if (Itemcarrito != null) {
 			sonIguales = ( this.articulo == Itemcarrito.getArticulo());

@@ -5,10 +5,12 @@ import java.time.LocalTime;
 import java.util.List;
 
 import comercio.Contacto;
+import comercio.DiaRetiro;
 import comercio.Envio;
+import comercio.Itemcarrito;
 import comercio.Ubicacion;
 import comercio.Articulo;
-
+import comercio.Carrito;
 import comercio.Cliente;
 import comercio.Comercio;
 import comercio.RetiroLocal;
@@ -20,8 +22,9 @@ public class TestCasosDeUsoGeneral {
 		// TODO Auto-generated method stub
 		
 		  LocalDate dia=null;
+		  String nombreDia = null;
 		  Contacto contacto = new Contacto("almacen@gmail.com", "11 3123 7897", new Ubicacion(-34.7373213, -58.3892883));
-		  Comercio almacen = new Comercio(0,contacto,"Granate-Store","30-52745070-1",100,15.50,28,3,5);
+		  Comercio almacen = new Comercio(1,contacto,"Granate-Store","30-52745070-1",100,15.50,28,3,5);
 		  
 		  Contacto contactoAna = new Contacto("anafc@gmail.com", "11 3030 3456", new Ubicacion(-34.8250834,-58.3943303));
 		  Cliente clienteAna=new Cliente(1,contactoAna,"Fernandez","Ana",36500548);
@@ -46,14 +49,14 @@ public class TestCasosDeUsoGeneral {
 		  RetiroLocal retiroLocal2 = new RetiroLocal(LocalDate.now(), true, LocalTime.of(13,30)); 
 		  RetiroLocal retiroLocal3 = new RetiroLocal(LocalDate.now(), true, LocalTime.of(13,00)); 
 		  
-		  almacen.agregarCarrito(LocalDate.of(2020,10 , 28), LocalTime.of(20, 55), false, 10,envio1, clienteAna);
-		  almacen.agregarCarrito(LocalDate.of(2020,10 , 28), LocalTime.of(20, 55), false, 10,retiroLocal1, clienteMaxi);
-		  almacen.agregarCarrito(LocalDate.of(2020,10 , 28), LocalTime.of(20, 55), false, 10,retiroLocal2, clienteLucas);
-		  almacen.agregarCarrito(LocalDate.of(2020,10 , 28), LocalTime.of(20, 55), false, 10,retiroLocal3, clienteEze);
+		  almacen.agregarCarrito(LocalDate.of(2020,10 , 28), LocalTime.of(15, 55), false, 3,envio1, clienteAna);
+		  almacen.agregarCarrito(LocalDate.of(2020,10 , 28), LocalTime.of(12, 00), false, 3,retiroLocal1, clienteMaxi);
+		  almacen.agregarCarrito(LocalDate.of(2020,10 , 28), LocalTime.of(16, 30), false, 3,retiroLocal2, clienteLucas);
+		  almacen.agregarCarrito(LocalDate.of(2020,10 , 28), LocalTime.of(10, 15), false, 3,retiroLocal3, clienteEze);
        
-		  almacen.agregarDiaRetiro(1, LocalTime.of( 11, 00), LocalTime.of( 20, 30),30);
-		  almacen.agregarDiaRetiro(2,LocalTime.of( 10, 30), LocalTime.of( 19, 30),30);
-		  almacen.agregarDiaRetiro(3,LocalTime.of(11, 30), LocalTime.of( 21, 00),30);
+		  almacen.agregarDiaRetiro(1,LocalTime.of(8, 00), LocalTime.of( 20, 30),30);
+		  almacen.agregarDiaRetiro(2,LocalTime.of(8, 00), LocalTime.of( 20, 30),30);
+		  almacen.agregarDiaRetiro(3,LocalTime.of(8, 00), LocalTime.of( 20, 30),30);
 		  
 		  almacen.traerCarritoPorCliente(clienteAna).agregarItem(pepas, 3);
 		  almacen.traerCarritoPorCliente(clienteMaxi).agregarItem(manaos, 10);
@@ -64,8 +67,63 @@ public class TestCasosDeUsoGeneral {
 		  almacen.traerCarritoPorCliente(clienteLucas).agregarItem(papas, 5);
 		  almacen.traerCarritoPorCliente(clienteEze).agregarItem(cocacola, 2);
 		 
-		
-		 System.out.println(almacen);
+		 System.out.println("\t--"+almacen.getNombreComercio().toUpperCase()+"--");
+		 System.out.println("Cuit: " + almacen.getCuit());
+		 System.out.println("Nuestro email: " + almacen.getContacto().getEmail());
+		 System.out.println("Teléfono: " + almacen.getContacto().getCelular());
+		 System.out.println("\t-COSTO ENVÍOS-\nCosto fijo: $" + almacen.getCostoFijo());
+		 System.out.println("Costo adicional por km de: $" + almacen.getCostoPorKm());
+		 System.out.println("\n\nFECHA DE DESCUENTO: " + almacen.getDiaDescuento());
+		 System.out.println("Hoy contamos con un descuento del: " + almacen.getPorcentajeDescuentoDia() + "%");
+		 System.out.println("También tenemos un descuento del: " + almacen.getPorcentajeDescuentoEfectivo() + "%, por todas tus compras en efectivo.");
+		 System.out.println("\n\t--DÍAS DE RETIRO--");
+		 for (DiaRetiro diaRetiro : almacen.getLstDiaRetiro()) {
+			 switch (diaRetiro.getDiaSemana()) {
+				case 1: nombreDia = "Lunes";
+				break;
+				case 2: nombreDia = "Martes";
+				break;
+				case 3: nombreDia = "Miercoles";
+				break;
+				case 4: nombreDia = "Jueves";
+				break;
+				case 5: nombreDia = "Viernes";
+				break;
+				case 6: nombreDia = "Sabado";
+				break;
+				case 7: nombreDia = "Domingo";
+				break;
+				}
+				System.out.println("El día " + nombreDia);
+				System.out.println("Se puede retirar desde las: " + diaRetiro.getHoraDesde() + " hs.");
+				System.out.println("Hasta las: " + diaRetiro.getHoraHasta() + " hs.");
+				System.out.println("Con un intervalo de atención de: " + diaRetiro.getIntervalo() + " minutos.");
+				System.out.println("");
+		 }
+		 
+		 System.out.println("\n\t--CARRITOS--");
+		 for(Carrito carrito : almacen.getLstCarrito()) {
+			 int count = 1;
+			 System.out.println("Carrito: " + (carrito.getId()+1));
+			 System.out.println("Fecha de creación: " + carrito.getFecha());
+			 System.out.println("Hora de creación: " + carrito.getHora());
+			 if(!carrito.isCerrado())
+				System.out.println("El local se encuentra abierto.");
+			 else 
+				System.out.println("El local se encuentra cerrado.");
+			 System.out.println("Hoy "+ carrito.getFecha().getDayOfMonth() + " tiene un descuento del: " + carrito.getDescuento() + "%");
+			 System.out.println("\nEl carrito consta con los siguientes items: ");
+			 for (Itemcarrito itemCarrito : carrito.getLstItemcarrito()) {
+				System.out.println("-Articulo "+ count +": " + itemCarrito.getArticulo().getNombre().toUpperCase());
+				System.out.println("Cod. barras: " + itemCarrito.getArticulo().getCodBarras());
+				System.out.println("Precio: $" + itemCarrito.getArticulo().getPrecio());
+				System.out.println("Cantidad: " + itemCarrito.getCantidad());
+				count++;
+			 }
+			 System.out.println("El total sin descuento es: $" + carrito.calcularTotalCarrito());
+			 System.out.println("El total con descuento es: $" + carrito.totalAPagarCarrito());
+			 System.out.println("\n");
+		 }
 		 
 		 List<Turno> turnoLibre = almacen.generarAgenda(LocalDate.now());
 			System.out.println("\n--AGENDA DE TURNOS--");

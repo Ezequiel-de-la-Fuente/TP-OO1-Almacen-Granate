@@ -2,11 +2,9 @@ package test.CU;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
 
 
-import comercio.Carrito;
 import comercio.Cliente;
 import comercio.Comercio;
 import comercio.Contacto;
@@ -17,7 +15,6 @@ import comercio.Ubicacion;
 public class TestC04 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		RetiroLocal retiroLocal1 = new RetiroLocal(LocalDate.now(), true, LocalTime.of(15,30));
 		RetiroLocal retiroLocal2 = new RetiroLocal(LocalDate.now(), true, LocalTime.of(10,30));
@@ -31,15 +28,12 @@ public class TestC04 {
 		LocalDate dia = null;
 		
 		try {
-			
 			almacen.agregarCarrito(LocalDate.now(), LocalTime.now(), false, 20.50, retiroLocal1, cliente);
 			almacen.agregarCarrito(LocalDate.now(), LocalTime.now(), false, 20.50, retiroLocal2, cliente1);
 			almacen.agregarCarrito(LocalDate.now(), LocalTime.now(), false, 20.50, retiroLocal3, cliente2);
-			//System.out.println(almacen.getLstCarrito());
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());
-
 		}
 		try {
 			almacen.agregarDiaRetiro(5,LocalTime.of( 8, 30), LocalTime.of( 20, 30),30);
@@ -49,14 +43,10 @@ public class TestC04 {
 			almacen.agregarDiaRetiro(4,LocalTime.of( 8, 30), LocalTime.of( 22, 00),30);
 			almacen.agregarDiaRetiro(6,LocalTime.of( 8, 30), LocalTime.of( 22, 30),30);
 			almacen.agregarDiaRetiro(7,LocalTime.of( 8, 30), LocalTime.of( 21, 30),30);
-						
-			//System.out.println(almacen.getLstDiaRetiro());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
 		try {
-			//while(almacen.traerHoraRetiro(LocalDate.now())!= null) {
 			List<Turno> turnoOcupado = almacen.generarTurnosOcupados(LocalDate.now());
 			System.out.println("--TURNOS OCUPADOS--");
 			for(Turno turno : turnoOcupado) {
@@ -64,11 +54,8 @@ public class TestC04 {
 			}
 			System.out.println("Dia: " + dia);
 			for (Turno turno : turnoOcupado) {
-				
-					System.out.println("Hora:"  + turno.getHoraTurno() + " \nEstado:Ocupado\n");
-			
+				System.out.println("Hora:"  + turno.getHoraTurno() + " \nEstado:Ocupado\n");
 			}	
-			//}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
